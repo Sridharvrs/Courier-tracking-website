@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shipper Dashboard — Stackly Courier</title>
-<meta name="description" content="Stackly shipper dashboard: manage consignments, fleet, warehouse stock, rate cards, COD settlements and team access.">
+<title>Shipper Dashboard — SwiftTrail Courier</title>
+<meta name="description" content="SwiftTrail shipper dashboard: manage consignments, fleet, warehouse stock, rate cards, COD settlements and team access.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -63,7 +63,7 @@
       <!-- ---------- CONTROL ROOM ---------- -->
       <section class="module on" id="m-control">
         <div class="mod-head">
-          <div><span class="chip">Live Ops</span><h2>Control Room</h2><p>Network-wide pulse for every parcel your business has injected into Stackly today.</p></div>
+          <div><span class="chip">Live Ops</span><h2>Control Room</h2><p>Network-wide pulse for every parcel your business has injected into SwiftTrail today.</p></div>
           <button class="pill-btn spacer" onclick="window.location.href = 'dashboardError.html'"><i class="fa-solid fa-list-check"></i> Manifest Queue</button>
         </div>
 
@@ -99,8 +99,8 @@
         <div class="mod-head">
           <div><span class="chip">Manifest</span><h2>Consignments</h2><p>Bulk manage AWBs — assign riders, flag priority, print labels.</p></div>
           <div class="spacer bulkbar">
-            <button class="pill-btn alt" id="bulkAssign"><i class="fa-solid fa-user-check"></i> Assign Selected</button>
-            <button class="pill-btn" onclick="window.location.href = 'dashboardError.html'"><i class="fa-solid fa-print"></i> Print Labels</button>
+            <button class="pill-btn alt" onclick="window.location.href = 'dashboardError.html'" id="bulkAssign"><i class="fa-solid fa-user-check"></i> Assign Selected</button>
+            <button class="pill-btn" onclick="window.location.href = 'dashboardError.html'" id="bulkLabel"><i class="fa-solid fa-print"></i> Print Labels</button>
           </div>
         </div>
         <div class="panel reveal" style="overflow-x:auto">
@@ -132,7 +132,7 @@
             <div class="field"><label>AWB number</label><input id="asAwb" placeholder="SW-880231"></div>
             <div class="field"><label>Rider</label><select id="asRider"><option>Arun K. · Chennai North</option><option>Divya P. · Chennai South</option><option>Ravi M. · Hosur Lane</option><option>Naveen S. · Bengaluru</option></select></div>
             <div class="field"><label>Priority</label><select><option>Standard</option><option>High</option><option>Critical</option></select></div>
-            <button class="pill-btn" id="asBtn"><i class="fa-solid fa-paper-plane"></i> Dispatch</button>
+            <button class="pill-btn" onclick="window.location.href = 'dashboardError.html'" id="asBtn"><i class="fa-solid fa-paper-plane"></i> Dispatch</button>
             <p class="note" id="asOut" style="margin-top:12px"></p>
           </div>
         </div>
@@ -186,7 +186,7 @@
       <!-- ---------- COD ---------- -->
       <section class="module" id="m-cod">
         <div class="mod-head"><div><span class="chip">Cash Flow</span><h2>COD Settlement</h2><p>Collected cash, remittance cycles and pending reconciliation.</p></div>
-          <button class="pill-btn spacer" id="reqPayout" onclick="window.location.href = 'dashboardError.html'"><i class="fa-solid fa-money-bill-transfer"></i> Request Payout</button></div>
+          <button class="pill-btn spacer" onclick="window.location.href = 'dashboardError.html'" id="reqPayout"><i class="fa-solid fa-money-bill-transfer"></i> Request Payout</button></div>
         <div class="grid g3 reveal">
           <div class="card c-teal"><p class="k">Collected (7d)</p><p class="v">₹6.82L</p><p class="s">1,904 COD parcels</p></div>
           <div class="card c-amber"><p class="k">Pending Remittance</p><p class="v" id="codPend">₹2,41,500</p><p class="s">Next cycle Monday 10 AM</p></div>
@@ -229,7 +229,7 @@
       <!-- ---------- TEAM ---------- -->
       <section class="module" id="m-team">
         <div class="mod-head"><div><span class="chip">Access</span><h2>Team Access</h2><p>Invite staff and control what each role can touch.</p></div>
-          <button class="pill-btn spacer" id="inviteBtn" onclick="window.location.href = 'dashboardError.html'"><i class="fa-solid fa-user-plus"></i> Invite Member</button></div>
+          <button class="pill-btn spacer" onclick="window.location.href = 'dashboardError.html'" id="inviteBtn"><i class="fa-solid fa-user-plus"></i> Invite Member</button></div>
         <div class="panel reveal" style="overflow-x:auto">
           <table class="tbl"><thead><tr><th>Member</th><th>Role</th><th>Hub</th><th>Last Active</th><th>Access</th></tr></thead>
           <tbody id="teamRows"></tbody></table>
