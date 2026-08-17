@@ -87,10 +87,131 @@ ul{list-style:none}
 .drawer.open a.d-link:nth-child(5){animation-delay:.36s}
 @keyframes dIn{to{opacity:1;transform:translateX(0)}}
 .drawer a.d-link:hover,.drawer a.d-link.active{background:rgba(255,176,32,.16);border-left-color:var(--amber);color:#fff}
-.drawer .drawer-login{margin-top:auto;width:100%;justify-content:center}
+.drawer .drawer-login{margin-top:10px;width:100%;justify-content:center;padding: 20px 0;}
 .drawer .d-note{color:#8b93c6;font-size:.72rem;text-align:center;margin-top:14px;line-height:1.6}
 .scrim{position:fixed;inset:0;background:rgba(5,7,22,.62);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .4s;z-index:93}
 .scrim.on{opacity:1;pointer-events:auto}
+
+/* =========================================
+   DRAWER CONTACT DETAILS
+========================================= */
+
+.drawer-contact {
+  margin-top: 20px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(255,255,255,.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.drawer-contact-title {
+  margin-bottom: 4px;
+
+  color: #ffffff;
+
+  font-size: .72rem;
+  font-weight: 800;
+
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+
+.drawer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 9px 10px;
+
+  border-radius: 12px;
+
+  color: #dce3ff;
+
+  transition:
+    background .25s ease,
+    transform .25s ease;
+}
+
+
+.drawer-contact-item:hover {
+  background: rgba(255,255,255,.06);
+  transform: translateX(4px);
+}
+
+
+/* ICON */
+
+.drawer-contact-icon {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: rgba(255,176,32,.12);
+
+  border: 1px solid rgba(255,176,32,.18);
+
+  color: var(--amber);
+
+  font-size: .82rem;
+}
+
+
+/* TEXT */
+
+.drawer-contact-item div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+.drawer-contact-item small {
+  color: #7f8bb9;
+
+  font-size: .62rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: .08em;
+}
+
+
+.drawer-contact-item strong {
+  color: #edf1ff;
+
+  font-size: .76rem;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* NOTE */
+
+.drawer .d-note {
+  margin-top: 12px;
+}
+
 
 /* ---------- FOOTER ---------- */
 .foot{background:#070b22;color:#c9cfee;padding:70px 0 26px;position:relative;overflow:hidden}

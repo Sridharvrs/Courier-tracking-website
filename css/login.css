@@ -48,9 +48,48 @@
 .pw{position:relative;display:block}
 .eye{position:absolute;right:10px;top:calc(50% + 4px);transform:translateY(-50%);background:none;border:0;font-size:1.05rem;cursor:pointer;opacity:.8}
 .err{display:block;color:#ff8fa8;font-size:.78rem;margin-top:5px;font-weight:700;min-height:14px}
-.frow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.rem{display:flex;align-items:center;gap:8px;color:#c8d0f5!important;font-size:.85rem;margin:0!important}
-.rem input{width:18px;height:18px;accent-color:var(--amber)}
+
+.frow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.rem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #c8d0f5 !important;
+    font-size: .85rem;
+    margin: 0 !important;
+    line-height: 1;
+}
+
+.rem input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    accent-color: var(--amber);
+    vertical-align: middle;
+}
+
+.forgot {
+    color: var(--amber);
+    font-weight: 800;
+    font-size: .85rem;
+    line-height: 1;
+    margin: 0;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
 .forgot{color:var(--amber);font-weight:800;font-size:.85rem}
 .forgot:hover{text-decoration:underline}
 .wide{width:100%;justify-content:center}
@@ -166,3 +205,4 @@
 .eye i {
     pointer-events: none;
 }
+

@@ -60,3 +60,394 @@ body.cust{background:
   transition:transform .3s cubic-bezier(.5,1.6,.5,1);box-shadow:0 3px 8px rgba(0,0,0,.2)}
 .sw input:checked + i{background:linear-gradient(120deg,var(--teal),#00a7ff)}
 .sw input:checked + i::after{transform:translateX(22px)}
+
+
+/* =========================================
+   CUSTOMER WELCOME
+========================================= */
+
+.customer-welcome {
+  position: relative;
+  min-height: 260px;
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding: 38px 42px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b1030 0%,
+      #141a45 60%,
+      #123d52 100%
+    );
+
+  overflow: hidden;
+
+  box-shadow:
+    0 18px 40px rgba(9, 12, 40, .16);
+}
+
+
+/* Decorative glow */
+
+.customer-welcome::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: 100px;
+  top: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 212, 177, .14);
+
+  filter: blur(10px);
+}
+
+
+.customer-welcome::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  left: 35%;
+  bottom: -160px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 176, 32, .10);
+
+  filter: blur(10px);
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 680px;
+}
+
+
+.welcome-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  background: rgba(0, 212, 177, .12);
+
+  border: 1px solid rgba(0, 212, 177, .25);
+
+  color: #73f5df;
+
+  font-size: .72rem;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+
+.welcome-content h1 {
+  margin: 16px 0 10px;
+
+  color: #fff;
+
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+
+  line-height: 1.15;
+
+  letter-spacing: -.03em;
+}
+
+
+.welcome-content h1 span {
+  color: var(--amber);
+}
+
+
+.welcome-content p {
+  max-width: 580px;
+
+  color: #b9c4df;
+
+  font-size: .92rem;
+
+  line-height: 1.75;
+
+  margin-bottom: 22px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.welcome-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  flex-wrap: wrap;
+}
+
+
+.welcome-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 11px 18px;
+
+  border-radius: 12px;
+
+  font-size: .82rem;
+
+  font-weight: 800;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+
+.welcome-btn:hover {
+  transform: translateY(-3px);
+}
+
+
+.welcome-btn.primary {
+  background: linear-gradient(
+    120deg,
+    var(--amber),
+    #ff8a3d
+  );
+
+  color: #26170a;
+
+  box-shadow:
+    0 10px 22px rgba(255, 150, 32, .28);
+}
+
+
+.welcome-btn.secondary {
+  color: #fff;
+
+  background: rgba(255,255,255,.08);
+
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+
+.welcome-btn.secondary:hover {
+  background: rgba(255,255,255,.14);
+}
+
+
+/* =========================================
+   VISUAL
+========================================= */
+
+.welcome-visual {
+  position: relative;
+
+  width: 230px;
+  height: 190px;
+
+  flex: 0 0 230px;
+}
+
+
+.welcome-circle {
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  right: 20px;
+  top: 5px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(0, 212, 177, .25);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 212, 177, .16),
+      rgba(0, 212, 177, .03) 65%,
+      transparent 66%
+    );
+
+  box-shadow:
+    0 0 50px rgba(0, 212, 177, .12);
+}
+
+
+/* Package */
+
+.welcome-package {
+  position: absolute;
+
+  right: 68px;
+  top: 55px;
+
+  width: 70px;
+  height: 70px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    var(--amber),
+    #ff8a3d
+  );
+
+  color: #271708;
+
+  font-size: 1.8rem;
+
+  box-shadow:
+    0 18px 35px rgba(255, 176, 32, .3);
+
+  animation: packageFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes packageFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+
+}
+
+
+/* Truck */
+
+.welcome-truck {
+  position: absolute;
+
+  right: 15px;
+  bottom: 24px;
+
+  width: 55px;
+  height: 55px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.09);
+
+  border: 1px solid rgba(255,255,255,.14);
+
+  color: var(--teal);
+
+  font-size: 1.35rem;
+
+  animation: truckFloat 3s ease-in-out infinite .5s;
+}
+
+
+@keyframes truckFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .customer-welcome {
+    padding: 30px;
+
+  }
+
+  .welcome-visual {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .customer-welcome {
+    padding: 25px 22px;
+
+    border-radius: 20px;
+  }
+
+  .welcome-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .welcome-content p {
+    font-size: .86rem;
+  }
+
+  .welcome-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .welcome-btn {
+    width: 100%;
+  }
+
+}

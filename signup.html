@@ -58,9 +58,9 @@
         <span><i class="fa-solid fa-check"></i> 2-minute setup</span>
       </div>
       <div class="su-trust">
-        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=120&q=80" alt="User 1">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="User 2">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="User 3">
+        <img src="images/team1.webp" alt="User 1">
+        <img src="images/team2.webp" alt="User 2">
+        <img src="images/team3.webp" alt="User 3">
         <small>Trusted by <b>12,000+</b> shippers</small>
       </div>
     </div>
@@ -80,7 +80,7 @@
           <span>Full name</span>
           <div class="su-input-wrap">
             <i class="fa-regular fa-user"></i>
-            <input type="text" id="name" placeholder="John Doe" autocomplete="name">
+            <input type="text" id="name" oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'')" placeholder="John Doe" autocomplete="name">
           </div>
         </label>
 
