@@ -71,17 +71,17 @@ body {
 .feat .fi{font-size:2rem;width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.2);display:grid;place-items:center;margin-bottom:18px}
 .feat h3{font-size:1.2rem;margin-bottom:9px}
 .feat p{font-size:.92rem;line-height:1.75;color:rgba(255,255,255,.92)}
-.fnum{position:absolute;bottom:10px;right:18px;font-size:2.6rem;font-weight:900;color:rgba(255,255,255,.16)}
+.fnum{position:absolute;bottom:10px;right:18px;font-size:2.6rem;font-weight:900;color:rgba(51, 45, 45, 0.388)}
 .f-violet{background:linear-gradient(140deg,#6a3df0,#a06bff)}
 .f-teal{background:linear-gradient(140deg,#009e88,#00d4b1)}
 .f-amber{background:linear-gradient(140deg,#e07c00,#ffb020);color:#2a1a05}
 .f-amber p{color:rgba(42,26,5,.85)}
-.f-amber .fnum{color:rgba(42,26,5,.18)}
+.f-amber .fnum{color:rgba(51, 45, 45, 0.388)}
 .f-pink{background:linear-gradient(140deg,#e0245e,#ff7ba6)}
 .f-blue{background:linear-gradient(140deg,#0f4fd8,#3f8bff)}
 .f-lime{background:linear-gradient(140deg,#3c8f00,#8fd400);color:#17250a}
 .f-lime p{color:rgba(23,37,10,.85)}
-.f-lime .fnum{color:rgba(23,37,10,.18)}
+.f-lime .fnum{color:rgba(51, 45, 45, 0.388)}
 
 
 /* 5. FLEET */
@@ -116,6 +116,10 @@ body {
 .cta-btns{display:flex;gap:12px;flex-wrap:wrap}
 .cta-band .btn-amber{background:#2a1405;color:#ffd591;box-shadow:none}
 .cta-band .btn-ghost{border-color:rgba(42,20,5,.45);color:#2a1405}
+
+@media(min-width:980px){
+  .hero-art img{height:600px;object-fit: cover;}
+}
 
 @media(max-width:980px){
   .hero-in{grid-template-columns:1fr;padding-top:20px}
