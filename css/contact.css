@@ -1,3 +1,14 @@
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
 /* ===== CONTACT PAGE — cool blue/ice palette, soft cards ===== */
 .pill-ice{background:rgba(255,255,255,.18);color:#dff4ff;border:1px solid rgba(255,255,255,.4)}
 .pill-lemon{background:rgba(255,176,32,.16);color:#a86f00;border:1px solid rgba(255,176,32,.45)}

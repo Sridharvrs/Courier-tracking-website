@@ -1,3 +1,14 @@
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
 /* ===== SERVICES PAGE — split hero, tabs, warm editorial palette ===== */
 .pill-cream{background:rgba(255,247,232,.2);color:#ffe6b8;border:1px solid rgba(255,247,232,.4)}
 .pill-teal2{background:rgba(0,158,136,.14);color:#00806f;border:1px solid rgba(0,158,136,.4)}

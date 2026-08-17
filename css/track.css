@@ -1,3 +1,14 @@
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
 /* ===== TRACK PAGE — console / dashboard aesthetic ===== */
 .pill-lime{background:rgba(143,212,0,.18);color:#65a300;border:1px solid rgba(143,212,0,.5)}
 .pill-amber{background:rgba(255,176,32,.18);color:#b97600;border:1px solid rgba(255,176,32,.45)}

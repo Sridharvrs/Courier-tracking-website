@@ -1,5 +1,16 @@
 /* ===== HOME PAGE — dark cinematic hero + colourful card sections ===== */
 
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
 /* 1. HERO */
 .hero{position:relative;background:radial-gradient(1200px 600px at 80% -10%,#25306f,transparent),linear-gradient(160deg,#0b1030,#141a45 60%,#0b1030);padding:150px 0 0;overflow:hidden;color:#fff}
 .hero-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55}
