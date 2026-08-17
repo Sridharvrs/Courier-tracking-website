@@ -123,46 +123,95 @@
           />
         </div>
         <form class="c-form" id="cForm" novalidate>
-          <div class="row">
-            <label
-              >Full name<input
-                type="text"
-                id="fName"
-                placeholder="Ravi Shankar" /><small class="err"></small
-            ></label>
-            <label
-              >Email<input
-                type="email"
-                id="fMail"
-                placeholder="you@company.com" /><small class="err"></small
-            ></label>
-          </div>
-          <div class="row">
-            <label
-              >Tracking ID <i>(optional)</i
-              ><input type="text" id="fTrack" placeholder="ST-99120"
-            /></label>
-            <label
-              >Topic<select id="fTopic">
-                <option>Delayed shipment</option>
-                <option>Damaged parcel</option>
-                <option>Billing question</option>
-                <option>API / integration</option>
-                <option>Partnership</option>
-              </select></label
-            >
-          </div>
-          <label
-            >Message<textarea
-              id="fMsg"
-              rows="5"
-              placeholder="Describe the issue in a couple of lines…"
-            ></textarea
-            ><small class="err"></small
-          ></label>
-          <button class="btn btn-amber" type="submit">Send message ✈️</button>
-          <p class="ok" id="okMsg"></p>
-        </form>
+
+  <div class="row">
+
+    <label>
+      Full name
+      <input
+        type="text"
+        id="fName"
+        oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'')"
+        placeholder="Ravi Shankar"
+      />
+      <small class="err"></small>
+    </label>
+
+    <label>
+      Email
+      <input
+        type="email"
+        id="fMail"
+        placeholder="you@company.com"
+      />
+      <small class="err"></small>
+    </label>
+
+  </div>
+
+
+  <div class="row">
+
+    <label>
+      Contact Number
+      <input
+        type="tel"
+        id="fPhone"
+        placeholder="+91 98765 43210"
+        oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+        maxlength="15"
+      />
+      <small class="err"></small>
+    </label>
+
+    <label>
+      Tracking ID <i>(optional)</i>
+      <input
+        type="text"
+        id="fTrack"
+        placeholder="ST-99120"
+      />
+    </label>
+
+  </div>
+
+
+  <div class="row">
+
+    <label>
+      Topic
+      <select id="fTopic">
+        <option>Delayed shipment</option>
+        <option>Damaged parcel</option>
+        <option>Billing question</option>
+        <option>API / integration</option>
+        <option>Partnership</option>
+      </select>
+    </label>
+
+    <div></div>
+
+  </div>
+
+
+  <label>
+    Message
+    <textarea
+      id="fMsg"
+      rows="5"
+      placeholder="Describe the issue in a couple of lines…"
+    ></textarea>
+    <small class="err"></small>
+  </label>
+
+
+  <button class="btn btn-amber" type="submit">
+    Send message ✈️
+  </button>
+
+  <p class="ok" id="okMsg"></p>
+
+</form>
       </div>
     </section>
 
