@@ -1,0 +1,1437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SwiftTrail — Courier Tracking Platform</title>
+    <meta
+      name="description"
+      content="SwiftTrail is a real-time courier tracking platform for shipments, fleets and last-mile delivery."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="images/logo.webp" alt="Stackly" />
+      </a>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="track.html">Track</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-amber" href="login.html">🔐 Login</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer">
+      <a class="d-link active" href="index.html">🏠 Home</a>
+      <a class="d-link" href="track.html">📍 Track</a>
+      <a class="d-link" href="services.html">📦 Services</a>
+      <a class="d-link" href="pricing.html">💰 Pricing</a>
+      <a class="d-link" href="contact.html">✉️ Contact</a>
+      <a class="btn btn-amber drawer-login" href="login.html">🔐 Login</a>
+      <p class="d-note">Track 4.2M parcels daily<br />across 128 countries</p>
+    </aside>
+
+    <!-- 1. HERO -->
+    <header class="hero">
+      <div class="hero-blob b1"></div>
+      <div class="hero-blob b2"></div>
+      <div class="wrap hero-in">
+        <div class="hero-copy">
+          <span class="eyebrow pill-amber">● Live network status: optimal</span>
+          <h1>Every parcel,<br /><em>watched</em> in real time.</h1>
+          <p>
+            SwiftTrail plugs into your carriers, warehouses and drivers to give
+            one honest answer to the only question customers ask —
+            <strong>where is my package?</strong>
+          </p>
+          <div class="hero-btns">
+            <a href="error.html" class="btn btn-amber">Track a shipment →</a>
+            <a href="error.html" class="btn btn-ghost">Explore services</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <b data-count="4.2" data-suffix="M">0</b
+              ><small>Parcels / day</small>
+            </div>
+            <div>
+              <b data-count="128" data-suffix="">0</b><small>Countries</small>
+            </div>
+            <div>
+              <b data-count="99.4" data-suffix="%">0</b
+              ><small>On-time rate</small>
+            </div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img
+            src="images/home1.webp"
+            alt="Courier delivery van"
+          />
+          <div class="float-card fc1">
+            <span class="dot"></span> Out for delivery · 14:20
+          </div>
+          <div class="float-card fc2">📦 #ST-99120 · Chennai hub</div>
+          <div class="radar"></div>
+        </div>
+      </div>
+      <div class="marquee">
+        <div class="mq-track">
+          <span>⚡ SAME-DAY EXPRESS</span><span>🌍 GLOBAL AIR FREIGHT</span
+          ><span>❄️ COLD CHAIN</span><span>🛵 LAST MILE</span
+          ><span>🔒 SECURE VAULT</span> <span>⚡ SAME-DAY EXPRESS</span
+          ><span>🌍 GLOBAL AIR FREIGHT</span><span>❄️ COLD CHAIN</span
+          ><span>🛵 LAST MILE</span><span>🔒 SECURE VAULT</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- HOME SECTION — GLOBAL DELIVERY INTELLIGENCE -->
+    <section class="home-global">
+      <div class="home-global-bg"></div>
+
+      <div class="wrap home-global-inner">
+        <div class="home-global-content reveal left">
+          <span class="eyebrow home-global-pill">
+            Global delivery intelligence
+          </span>
+
+          <h2>
+            Every shipment.
+            <span>One connected journey.</span>
+          </h2>
+
+          <p>
+            SwiftTrail connects your shipments, carriers, hubs and customers
+            through one intelligent delivery network. Know what is happening
+            before a delay becomes a problem.
+          </p>
+
+          <div class="global-features">
+            <div class="global-feature">
+              <span class="gf-icon">🛰️</span>
+              <div>
+                <h3>Live shipment signals</h3>
+                <p>Real-time events from pickup to final delivery.</p>
+              </div>
+            </div>
+
+            <div class="global-feature">
+              <span class="gf-icon">🌍</span>
+              <div>
+                <h3>Connected global network</h3>
+                <p>One visibility layer across multiple carriers.</p>
+              </div>
+            </div>
+
+            <div class="global-feature">
+              <span class="gf-icon">⚡</span>
+              <div>
+                <h3>Predictive intelligence</h3>
+                <p>Spot potential delays before they affect customers.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="error.html" class="btn btn-amber">
+            Explore live tracking →
+          </a>
+        </div>
+
+        <div class="home-global-visual reveal right">
+          <div class="global-image-card">
+            <img
+              src="images/home2.webp"
+              alt="Global logistics operations"
+            />
+
+            <div class="global-map-glow"></div>
+
+            <div class="global-status">
+              <div class="status-top">
+                <span class="live-indicator"></span>
+                Network live
+              </div>
+
+              <strong>24,892</strong>
+
+              <span>shipments moving now</span>
+            </div>
+
+            <div class="global-location location-one">
+              <span></span>
+              Chennai
+            </div>
+
+            <div class="global-location location-two">
+              <span></span>
+              Dubai
+            </div>
+
+            <div class="global-location location-three">
+              <span></span>
+              Singapore
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. QUICK TRACK -->
+    <section class="sec-quick">
+      <div class="wrap">
+        <div class="quick-box reveal zoom">
+          <div class="qb-left">
+            <h2>Quick track</h2>
+            <p>
+              Paste any tracking ID — we normalise 40+ carrier formats
+              automatically.
+            </p>
+          </div>
+          <form class="qb-form" id="quickForm">
+            <input
+              type="text"
+              id="quickId"
+              placeholder="e.g. ST-99120"
+              autocomplete="off"
+            />
+            <button
+              class="btn btn-teal"
+              type="submit"
+              onclick="window.location.href = 'error.html'"
+            >
+              Track now
+            </button>
+          </form>
+        </div>
+        <p class="qb-hint" id="quickHint">
+          Try <b>ST-99120</b>, <b>ST-44781</b> or <b>ST-10233</b>
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. FEATURES -->
+    <section class="sec-features">
+      <div class="wrap">
+        <div class="head-c reveal">
+          <span class="eyebrow pill-teal">Why SwiftTrail</span>
+          <h2>Built for people who hate <span>“in transit”</span></h2>
+          <p>
+            Six layers of visibility that turn a vague status into a precise
+            promise.
+          </p>
+        </div>
+        <div class="feat-grid">
+          <article class="feat f-violet reveal left">
+            <div class="fi">🛰️</div>
+            <h3>GPS pulse</h3>
+            <p>
+              Driver location streamed every 8 seconds and mapped onto the
+              planned route corridor.
+            </p>
+            <span class="fnum">01</span>
+          </article>
+          <article class="feat f-teal reveal">
+            <div class="fi">🧠</div>
+            <h3>Predictive ETA</h3>
+            <p>
+              Weather, traffic and hub backlog feed a model that re-forecasts
+              arrival 40 times a trip.
+            </p>
+            <span class="fnum">02</span>
+          </article>
+          <article class="feat f-amber reveal right">
+            <div class="fi">🔔</div>
+            <h3>Smart alerts</h3>
+            <p>
+              SMS, WhatsApp and email fired on the exact events your customer
+              actually cares about.
+            </p>
+            <span class="fnum">03</span>
+          </article>
+          <article class="feat f-pink reveal left">
+            <div class="fi">📷</div>
+            <h3>Proof of delivery</h3>
+            <p>
+              Geo-stamped photo, signature and OTP stored immutably for seven
+              years.
+            </p>
+            <span class="fnum">04</span>
+          </article>
+          <article class="feat f-blue reveal">
+            <div class="fi">🧊</div>
+            <h3>Cold chain log</h3>
+            <p>
+              Temperature and humidity sensors alert before a breach, not after
+              the claim.
+            </p>
+            <span class="fnum">05</span>
+          </article>
+          <article class="feat f-lime reveal right">
+            <div class="fi">🔗</div>
+            <h3>Open API</h3>
+            <p>
+              REST + webhooks, 120ms median response, SDKs for Node, PHP, Python
+              and Java.
+            </p>
+            <span class="fnum">06</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DELIVERY PERFORMANCE -->
+    <section class="sec-performance">
+      <div class="performance-bg"></div>
+
+      <div class="wrap">
+        <!-- HEADER -->
+        <div class="performance-head reveal">
+          <div>
+            <span class="eyebrow performance-pill">● Delivery Performance</span>
+            <h2>Numbers that keep<br /><span>moving.</span></h2>
+          </div>
+
+          <p>
+            Every shipment generates data. We turn that data into faster
+            deliveries, better predictions and happier customers.
+          </p>
+        </div>
+
+        <!-- MAIN PERFORMANCE PANEL -->
+        <div class="performance-panel reveal zoom">
+          <!-- LEFT BIG STAT -->
+          <div class="performance-main">
+            <div class="performance-label">
+              <span class="live-dot"></span>
+              GLOBAL DELIVERY RATE
+            </div>
+
+            <div class="big-number">
+              <span data-count="99.4">0</span><sup>%</sup>
+            </div>
+
+            <p>Shipments delivered on time across the SwiftTrail network.</p>
+
+            <div class="performance-progress">
+              <span></span>
+            </div>
+
+            <div class="progress-info">
+              <span>On-time deliveries</span>
+              <strong>99.4%</strong>
+            </div>
+          </div>
+
+          <!-- RIGHT STATS -->
+          <div class="performance-stats">
+            <div class="performance-stat">
+              <div class="ps-icon ps-amber">📦</div>
+
+              <div class="ps-content">
+                <small>PARCELS DELIVERED</small>
+                <strong> <span data-count="4.2">0</span>M+ </strong>
+                <p>Every single day</p>
+              </div>
+
+              <span class="stat-arrow">↗</span>
+            </div>
+
+            <div class="performance-stat">
+              <div class="ps-icon ps-teal">🌍</div>
+
+              <div class="ps-content">
+                <small>GLOBAL COVERAGE</small>
+                <strong>
+                  <span data-count="128">0</span>
+                </strong>
+                <p>Countries connected</p>
+              </div>
+
+              <span class="stat-arrow">↗</span>
+            </div>
+
+            <div class="performance-stat">
+              <div class="ps-icon ps-violet">⚡</div>
+
+              <div class="ps-content">
+                <small>AVERAGE RESPONSE</small>
+                <strong> <span data-count="120">0</span>ms </strong>
+                <p>API response time</p>
+              </div>
+
+              <span class="stat-arrow">↗</span>
+            </div>
+
+            <div class="performance-stat">
+              <div class="ps-icon ps-pink">🛰️</div>
+
+              <div class="ps-content">
+                <small>GPS REFRESH</small>
+                <strong> <span data-count="8">0</span>s </strong>
+                <p>Location update interval</p>
+              </div>
+
+              <span class="stat-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MINI ANALYTICS -->
+        <div class="performance-bottom reveal">
+          <div class="performance-note">
+            <span class="trend-icon">↗</span>
+
+            <div>
+              <strong>Performance is improving</strong>
+              <small>
+                SwiftTrail delivery reliability has increased across the
+                network.
+              </small>
+            </div>
+          </div>
+
+          <div class="mini-chart">
+            <div class="chart-label">
+              <span>ON-TIME PERFORMANCE</span>
+              <strong>Last 7 days</strong>
+            </div>
+
+            <div class="chart-bars">
+              <span style="height: 58%"></span>
+              <span style="height: 64%"></span>
+              <span style="height: 61%"></span>
+              <span style="height: 72%"></span>
+              <span style="height: 76%"></span>
+              <span style="height: 84%"></span>
+              <span class="active" style="height: 94%"></span>
+            </div>
+
+            <div class="chart-days">
+              <span>M</span>
+              <span>T</span>
+              <span>W</span>
+              <span>T</span>
+              <span>F</span>
+              <span>S</span>
+              <span>S</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SMART TRACKING EXPERIENCE -->
+    <section class="sec-smart">
+      <div class="smart-orb smart-orb-1"></div>
+      <div class="smart-orb smart-orb-2"></div>
+
+      <div class="wrap">
+        <div class="smart-layout">
+          <!-- LEFT: PHONE TRACKING UI -->
+          <div class="smart-visual reveal left">
+            <div class="smart-phone">
+              <!-- PHONE TOP -->
+              <div class="phone-top">
+                <span class="phone-time">09:41</span>
+
+                <div class="phone-camera"></div>
+
+                <div class="phone-icons">
+                  <span>▮▮▮</span>
+                  <span>⌁</span>
+                  <span>●</span>
+                </div>
+              </div>
+
+              <!-- PHONE HEADER -->
+              <div class="phone-header">
+                <button class="phone-back">‹</button>
+
+                <div>
+                  <small>TRACKING</small>
+                  <strong>ST-99120</strong>
+                </div>
+
+                <button class="phone-more">•••</button>
+              </div>
+
+              <!-- DELIVERY STATUS -->
+              <div class="phone-status">
+                <div class="status-icon">✓</div>
+
+                <div>
+                  <small>ARRIVING TODAY</small>
+                  <strong>Out for delivery</strong>
+                </div>
+
+                <span class="status-live">LIVE</span>
+              </div>
+
+              <!-- PHONE MAP -->
+              <div class="phone-map">
+                <div class="phone-map-grid"></div>
+
+                <div class="phone-road pr-1"></div>
+                <div class="phone-road pr-2"></div>
+                <div class="phone-road pr-3"></div>
+
+                <svg
+                  class="phone-route"
+                  viewBox="0 0 320 230"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    class="phone-route-bg"
+                    d="M30 185 C85 175 80 115 135 130 C185 145 165 65 220 82 C250 92 270 52 294 35"
+                  />
+
+                  <path
+                    class="phone-route-line"
+                    d="M30 185 C85 175 80 115 135 130 C185 145 165 65 220 82 C250 92 270 52 294 35"
+                  />
+                </svg>
+
+                <!-- START -->
+                <div class="phone-pin phone-start">
+                  <span>✓</span>
+                </div>
+
+                <!-- CURRENT -->
+                <div class="phone-current">
+                  <div class="phone-current-ring">🚚</div>
+
+                  <span class="phone-ripple"></span>
+                </div>
+
+                <!-- END -->
+                <div class="phone-pin phone-end">
+                  <span>⌖</span>
+                </div>
+
+                <div class="map-city city-1">Chennai</div>
+
+                <div class="map-city city-2">Bengaluru</div>
+              </div>
+
+              <!-- ETA -->
+              <div class="phone-eta">
+                <div>
+                  <small>ESTIMATED ARRIVAL</small>
+                  <strong>Today, 14:20</strong>
+                </div>
+
+                <div class="eta-divider"></div>
+
+                <div>
+                  <small>REMAINING</small>
+                  <strong>42.8 km</strong>
+                </div>
+              </div>
+
+              <!-- TRACKING TIMELINE -->
+              <div class="phone-timeline">
+                <div class="phone-event completed">
+                  <span class="event-dot">✓</span>
+
+                  <div>
+                    <strong>Package picked up</strong>
+                    <small>Today · 09:12 AM</small>
+                  </div>
+                </div>
+
+                <div class="phone-event completed">
+                  <span class="event-dot">✓</span>
+
+                  <div>
+                    <strong>Reached sorting hub</strong>
+                    <small>Today · 10:46 AM</small>
+                  </div>
+                </div>
+
+                <div class="phone-event active">
+                  <span class="event-dot">●</span>
+
+                  <div>
+                    <strong>Out for delivery</strong>
+                    <small>Hosur Road · Just now</small>
+                  </div>
+                </div>
+              </div>
+
+              <button class="phone-track-btn">
+                View full tracking
+                <span>→</span>
+              </button>
+
+              <div class="phone-home"></div>
+            </div>
+
+            <!-- FLOATING NOTIFICATION -->
+            <div class="smart-notification">
+              <span class="notification-icon">🔔</span>
+
+              <div>
+                <strong>Delivery update</strong>
+                <small>Your courier is nearby</small>
+              </div>
+
+              <span class="notification-time">now</span>
+            </div>
+
+            <!-- FLOATING LOCATION -->
+            <div class="smart-location">
+              <span>📍</span>
+              <div>
+                <strong>Live location</strong>
+                <small>Updated 8 sec ago</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: CONTENT -->
+          <div class="smart-content reveal right">
+            <span class="eyebrow smart-pill">⚡ Smart Tracking</span>
+
+            <h2>
+              Tracking that tells you
+              <span>what happens next.</span>
+            </h2>
+
+            <p class="smart-intro">
+              Don't just show customers where their package is. Give them the
+              complete picture — location, ETA, alerts and every important
+              delivery event.
+            </p>
+
+            <!-- SMART FEATURES -->
+
+            <div class="smart-list">
+              <div class="smart-item active">
+                <div class="smart-item-icon">
+                  <span>📍</span>
+                </div>
+
+                <div class="smart-item-copy">
+                  <strong>Real-time location</strong>
+
+                  <p>
+                    See your courier's latest location without refreshing the
+                    page.
+                  </p>
+                </div>
+
+                <span class="smart-item-arrow">↗</span>
+              </div>
+
+              <div class="smart-item">
+                <div class="smart-item-icon">
+                  <span>⏱️</span>
+                </div>
+
+                <div class="smart-item-copy">
+                  <strong>Predictive arrival</strong>
+
+                  <p>
+                    Smart ETA updates automatically when traffic or route
+                    conditions change.
+                  </p>
+                </div>
+
+                <span class="smart-item-arrow">↗</span>
+              </div>
+
+              <div class="smart-item">
+                <div class="smart-item-icon">
+                  <span>🔔</span>
+                </div>
+
+                <div class="smart-item-copy">
+                  <strong>Instant notifications</strong>
+
+                  <p>
+                    Get notified when your shipment moves, arrives nearby or
+                    gets delivered.
+                  </p>
+                </div>
+
+                <span class="smart-item-arrow">↗</span>
+              </div>
+
+              <div class="smart-item">
+                <div class="smart-item-icon">
+                  <span>🔒</span>
+                </div>
+
+                <div class="smart-item-copy">
+                  <strong>Secure delivery proof</strong>
+
+                  <p>
+                    Photos, signatures and OTP verification keep every delivery
+                    accountable.
+                  </p>
+                </div>
+
+                <span class="smart-item-arrow">↗</span>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <a href="error.html" class="btn btn-amber smart-btn">
+              Try live tracking
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. COVERAGE NETWORK -->
+    <section class="sec-network">
+      <div class="network-glow network-glow-1"></div>
+      <div class="network-glow network-glow-2"></div>
+
+      <div class="wrap">
+        <!-- HEADER -->
+        <div class="network-head reveal">
+          <div>
+            <span class="eyebrow network-pill">🌍 Global Network</span>
+
+            <h2>
+              One network.
+              <span>Every destination.</span>
+            </h2>
+          </div>
+
+          <p>
+            From local doorstep deliveries to international freight, SwiftTrail
+            connects every shipment through one intelligent tracking network.
+          </p>
+        </div>
+
+        <!-- NETWORK EXPERIENCE -->
+        <div class="network-layout">
+          <!-- MAP -->
+          <div class="network-map-wrap reveal left">
+            <div class="network-map">
+              <!-- GRID -->
+              <div class="network-grid"></div>
+
+              <!-- DECORATIVE CONTINENT SHAPES -->
+              <div class="continent continent-1"></div>
+              <div class="continent continent-2"></div>
+              <div class="continent continent-3"></div>
+              <div class="continent continent-4"></div>
+
+              <!-- ROUTE SVG -->
+              <svg
+                class="network-routes"
+                viewBox="0 0 900 500"
+                preserveAspectRatio="none"
+              >
+                <path
+                  class="network-route"
+                  d="M170 250 C260 160 330 170 420 240 C510 310 560 170 690 180"
+                />
+
+                <path
+                  class="network-route"
+                  d="M170 250 C290 300 350 380 470 340 C590 300 610 360 760 300"
+                />
+
+                <path
+                  class="network-route"
+                  d="M420 240 C450 150 540 120 610 150 C670 180 690 240 760 300"
+                />
+
+                <path
+                  class="network-route route-alt"
+                  d="M270 390 C360 330 410 300 470 340"
+                />
+              </svg>
+
+              <!-- CITY NODES -->
+
+              <div class="network-node node-chennai">
+                <span class="node-pulse"></span>
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+                  <strong>Chennai</strong>
+                  <small>India</small>
+                </div>
+              </div>
+
+              <div class="network-node node-bengaluru">
+                <span class="node-pulse"></span>
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+                  <strong>Bengaluru</strong>
+                  <small>India</small>
+                </div>
+              </div>
+
+              <div class="network-node node-dubai">
+                <span class="node-pulse"></span>
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+                  <strong>Dubai</strong>
+                  <small>UAE</small>
+                </div>
+              </div>
+
+              <div class="network-node node-singapore">
+                <span class="node-pulse"></span>
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+                  <strong>Singapore</strong>
+                  <small>SG</small>
+                </div>
+              </div>
+
+              <div class="network-node node-london">
+                <span class="node-pulse"></span>
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+                  <strong>London</strong>
+                  <small>UK</small>
+                </div>
+              </div>
+
+              <div class="network-node node-newyork">
+                <span class="node-pulse"></span>
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+                  <strong>New York</strong>
+                  <small>USA</small>
+                </div>
+              </div>
+
+              <!-- MAP FLOATING INFO -->
+
+              <div class="network-floating network-f1">
+                <span>🛰️</span>
+                <div>
+                  <strong>4.2M+</strong>
+                  <small>Parcels tracked daily</small>
+                </div>
+              </div>
+
+              <div class="network-floating network-f2">
+                <span>⚡</span>
+                <div>
+                  <strong>99.4%</strong>
+                  <small>On-time network rate</small>
+                </div>
+              </div>
+
+              <!-- SCANNING LINE -->
+              <div class="network-scan"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT CONTENT -->
+          <div class="network-content reveal right">
+            <div class="network-mini-title">
+              <span class="network-live"></span>
+              NETWORK STATUS
+              <strong>ALL SYSTEMS OPERATIONAL</strong>
+            </div>
+
+            <h3>
+              Connected across
+              <span>128 countries.</span>
+            </h3>
+
+            <p class="network-intro">
+              Your shipment doesn't stop being visible when it crosses a border.
+              SwiftTrail keeps the same tracking experience from pickup to final
+              delivery.
+            </p>
+
+            <!-- COVERAGE STATS -->
+
+            <div class="coverage-stats">
+              <div class="coverage-stat">
+                <strong>
+                  <span data-count="128">0</span>
+                </strong>
+
+                <small>Countries</small>
+
+                <div class="coverage-line">
+                  <span style="width: 94%"></span>
+                </div>
+              </div>
+
+              <div class="coverage-stat">
+                <strong> <span data-count="2400">0</span>+ </strong>
+
+                <small>Delivery hubs</small>
+
+                <div class="coverage-line">
+                  <span style="width: 82%"></span>
+                </div>
+              </div>
+
+              <div class="coverage-stat">
+                <strong> <span data-count="40">0</span>+ </strong>
+
+                <small>Carrier formats</small>
+
+                <div class="coverage-line">
+                  <span style="width: 68%"></span>
+                </div>
+              </div>
+
+              <div class="coverage-stat">
+                <strong> <span data-count="24">0</span>/7 </strong>
+
+                <small>Network monitoring</small>
+
+                <div class="coverage-line">
+                  <span style="width: 100%"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CONNECTED CITIES -->
+
+            <div class="network-cities">
+              <div class="cities-heading">
+                <span>POPULAR ROUTES</span>
+                <small>LIVE</small>
+              </div>
+
+              <div class="city-route">
+                <span>🇮🇳</span>
+                <strong>Chennai</strong>
+                <i>→</i>
+                <strong>Bengaluru</strong>
+                <span>🇮🇳</span>
+                <small>4h 20m</small>
+              </div>
+
+              <div class="city-route">
+                <span>🇮🇳</span>
+                <strong>Chennai</strong>
+                <i>→</i>
+                <strong>Dubai</strong>
+                <span>🇦🇪</span>
+                <small>1d 8h</small>
+              </div>
+
+              <div class="city-route">
+                <span>🇸🇬</span>
+                <strong>Singapore</strong>
+                <i>→</i>
+                <strong>London</strong>
+                <span>🇬🇧</span>
+                <small>2d 4h</small>
+              </div>
+            </div>
+
+            <a href="error.html" class="btn btn-teal network-btn">
+              Explore our network
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- home-journey -->
+    <section class="home-journey">
+      <div class="home-journey-bg"></div>
+
+      <div class="home-journey-overlay"></div>
+
+      <div class="wrap home-journey-inner">
+        <div class="journey-content reveal">
+          <span class="eyebrow journey-pill"> Beyond delivery </span>
+
+          <h2>
+            Moving the world,
+            <span>one package at a time.</span>
+          </h2>
+
+          <p>
+            From the moment a package leaves the warehouse to the moment it
+            reaches the customer's door, SwiftTrail keeps every movement
+            connected, visible and intelligent.
+          </p>
+
+          <div class="journey-actions">
+            <a href="error.html" class="btn btn-amber"> Track a shipment → </a>
+
+            <a href="error.html" class="btn btn-ghost"> Explore our network </a>
+          </div>
+        </div>
+
+        <!-- Floating information -->
+        <div class="journey-info">
+          <div class="journey-info-card reveal">
+            <span class="j-icon">📍</span>
+
+            <div>
+              <strong>12,480+</strong>
+              <span>Deliveries moving today</span>
+            </div>
+          </div>
+
+          <div class="journey-info-card reveal">
+            <span class="j-icon">⚡</span>
+
+            <div>
+              <strong>99.4%</strong>
+              <span>On-time delivery rate</span>
+            </div>
+          </div>
+
+          <div class="journey-info-card reveal">
+            <span class="j-icon">🌍</span>
+
+            <div>
+              <strong>128</strong>
+              <span>Countries connected</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. COURIER TECHNOLOGY -->
+    <section class="sec-tech">
+      <div class="tech-grid-bg"></div>
+
+      <div class="wrap">
+        <!-- HEADER -->
+        <div class="tech-head reveal">
+          <div>
+            <span class="eyebrow tech-pill">🤖 Courier Technology</span>
+
+            <h2>
+              Intelligence behind
+              <span>every delivery.</span>
+            </h2>
+          </div>
+
+          <p>
+            Smart technology works quietly behind every shipment, helping
+            couriers choose better routes, predict delays and keep customers
+            informed.
+          </p>
+        </div>
+
+        <!-- TECHNOLOGY DASHBOARD -->
+        <div class="tech-dashboard reveal zoom">
+          <!-- LEFT SIDE -->
+          <div class="tech-main">
+            <div class="tech-main-top">
+              <div>
+                <small>SWIFTTRAIL INTELLIGENCE</small>
+
+                <h3>
+                  Delivery
+                  <strong>OS</strong>
+                </h3>
+              </div>
+
+              <div class="tech-status">
+                <span></span>
+                SYSTEM ONLINE
+              </div>
+            </div>
+
+            <!-- ROUTE VISUAL -->
+            <div class="tech-route">
+              <div class="tech-route-line"></div>
+
+              <div class="tech-node tech-node-1">
+                <span>📦</span>
+              </div>
+
+              <div class="tech-node tech-node-2">
+                <span>🏭</span>
+              </div>
+
+              <div class="tech-node tech-node-3">
+                <span>🚚</span>
+              </div>
+
+              <div class="tech-node tech-node-4">
+                <span>🏠</span>
+              </div>
+
+              <!-- AI SCAN -->
+              <div class="ai-scanner">
+                <span></span>
+              </div>
+
+              <!-- MOVING PACKAGE -->
+              <div class="tech-package">📦</div>
+            </div>
+
+            <!-- AI MESSAGE -->
+            <div class="ai-message">
+              <div class="ai-avatar">AI</div>
+
+              <div>
+                <small>SMART ROUTE ENGINE</small>
+
+                <strong> Optimal route detected </strong>
+
+                <p>Traffic reduced by 18% on the recommended route.</p>
+              </div>
+
+              <span class="ai-check">✓</span>
+            </div>
+          </div>
+
+          <!-- RIGHT TECHNOLOGIES -->
+          <div class="tech-features">
+            <div class="tech-feature active">
+              <div class="tech-feature-icon">🧠</div>
+
+              <div>
+                <small>01</small>
+
+                <h4>Predictive AI</h4>
+
+                <p>Predict delivery delays before they affect your shipment.</p>
+              </div>
+
+              <span>↗</span>
+            </div>
+
+            <div class="tech-feature">
+              <div class="tech-feature-icon">🗺️</div>
+
+              <div>
+                <small>02</small>
+
+                <h4>Smart Routing</h4>
+
+                <p>
+                  Find efficient routes using live traffic and delivery data.
+                </p>
+              </div>
+
+              <span>↗</span>
+            </div>
+
+            <div class="tech-feature">
+              <div class="tech-feature-icon">📡</div>
+
+              <div>
+                <small>03</small>
+
+                <h4>IoT Tracking</h4>
+
+                <p>
+                  Monitor shipment movement and location updates in real time.
+                </p>
+              </div>
+
+              <span>↗</span>
+            </div>
+
+            <div class="tech-feature">
+              <div class="tech-feature-icon">🔐</div>
+
+              <div>
+                <small>04</small>
+
+                <h4>Secure Data</h4>
+
+                <p>
+                  Keep shipment information protected across the entire delivery
+                  network.
+                </p>
+              </div>
+
+              <span>↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TECHNOLOGY METRICS -->
+
+        <div class="tech-metrics reveal">
+          <div class="tech-metric">
+            <span>⚡</span>
+
+            <div>
+              <strong> <span data-count="120">0</span>ms </strong>
+
+              <small>Average API response</small>
+            </div>
+          </div>
+
+          <div class="tech-metric">
+            <span>🛰️</span>
+
+            <div>
+              <strong> <span data-count="8">0</span>s </strong>
+
+              <small>GPS refresh interval</small>
+            </div>
+          </div>
+
+          <div class="tech-metric">
+            <span>🧠</span>
+
+            <div>
+              <strong> <span data-count="99.4">0</span>% </strong>
+
+              <small>Prediction accuracy</small>
+            </div>
+          </div>
+
+          <div class="tech-metric">
+            <span>🔒</span>
+
+            <div>
+              <strong>24/7</strong>
+
+              <small>Security monitoring</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FLEET GALLERY -->
+    <section class="sec-fleet">
+      <div class="wrap">
+        <div class="head-c reveal">
+          <span class="eyebrow pill-violet">Our network</span>
+          <h2>A fleet you can actually see</h2>
+          <p>Bikes, vans, trucks and freighters — all on one tracking layer.</p>
+        </div>
+        <div class="fleet-grid">
+          <figure class="fl reveal zoom">
+            <img
+              src="images/truck1.webp"
+              alt="Delivery bikes"
+            />
+            <figcaption>
+              <b>City bikes</b><span>18 min avg drop</span>
+            </figcaption>
+          </figure>
+          <figure class="fl tall reveal zoom">
+            <img
+              src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=700&q=80"
+              alt="Cargo van"
+            />
+            <figcaption><b>Cargo vans</b><span>1.2t payload</span></figcaption>
+          </figure>
+          <figure class="fl reveal zoom">
+            <img
+              src="images/logistics.webp"
+              alt="Freight truck"
+            />
+            <figcaption>
+              <b>Line-haul trucks</b><span>Night corridors</span>
+            </figcaption>
+          </figure>
+          <figure class="fl reveal zoom">
+            <img
+              src="images/logistics2.webp"
+              alt="Warehouse sorting"
+            />
+            <figcaption>
+              <b>Smart hubs</b><span>9k parcels/hour</span>
+            </figcaption>
+          </figure>
+          <figure class="fl reveal zoom">
+            <img
+              src="images/truck2.webp"
+              alt="Freight truck"
+            />
+            <figcaption>
+              <b>Line-haul trucks</b><span>Night corridors</span>
+            </figcaption>
+          </figure>
+          <figure class="fl wide reveal zoom">
+            <img
+              src="images/Air-cargo.webp"
+              alt="Air cargo"
+            />
+            <figcaption>
+              <b>Air freight</b><span>Next-day intercontinental</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. TESTIMONIALS + CTA -->
+    <section class="sec-voices">
+      <div class="wrap">
+        <div class="head-c light reveal">
+          <span class="eyebrow pill-teal">Voices</span>
+          <h2>Shippers who stopped guessing</h2>
+        </div>
+        <div class="v-grid">
+          <blockquote class="v v-1 reveal left">
+            <p>
+              “Our WISMO tickets dropped 61% in one quarter. Support finally has
+              time to sell.”
+            </p>
+            <footer>
+              <img
+                src="images/team1.webp"
+                alt="Aisha"
+              /><span><b>Aisha Rahman</b><small>Ops Head, Meshly</small></span>
+            </footer>
+          </blockquote>
+          <blockquote class="v v-2 reveal">
+            <p>
+              “The predictive ETA is scary accurate. We now promise 2-hour
+              windows and hit them.”
+            </p>
+            <footer>
+              <img
+                src="images/team2.webp"
+                alt="Daniel"
+              /><span><b>Daniel Okoye</b><small>Founder, BoxRun</small></span>
+            </footer>
+          </blockquote>
+          <blockquote class="v v-3 reveal right">
+            <p>
+              “Cold-chain alerts saved a ₹14L pharma consignment on day three of
+              rollout.”
+            </p>
+            <footer>
+              <img
+                src="images/team3.webp"
+                alt="Priya"
+              /><span
+                ><b>Priya Nair</b><small>Supply Chain, Medivo</small></span
+              >
+            </footer>
+          </blockquote>
+        </div>
+        <div class="cta-band reveal zoom">
+          <div>
+            <h3>Ready to see every parcel?</h3>
+            <p>Free 14-day workspace. No card, no setup call.</p>
+          </div>
+          <div class="cta-btns">
+            <a href="error.html" class="btn btn-amber">Create account</a
+            ><a href="error.html" class="btn btn-ghost">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="van-strip">
+      <div class="road"></div>
+      <div class="van">🚚</div>
+    </div>
+
+    <footer class="foot">
+      <div class="wrap foot-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 14px">
+            <a class="brand" href="index.html">
+              <img src="images/logo.webp" alt="Stackly">
+            </a>
+          </div>
+          <p>
+            The tracking layer for modern logistics. One API, every carrier,
+            zero guesswork.
+          </p>
+          <div class="soc">
+
+             <a href="error.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-instagram"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-google-play"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-app-store-ios"></i></a>
+
+         </div>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="track.html">Live tracking</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Network</a></li>
+            <li><a href="pricing.html">Enterprise</a></li>
+            <li><a href="index.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Head office</h4>
+          <p>
+            18 Harbour Line, Anna Salai<br />Chennai 600002, India<br />+91 44
+            4000 8899
+            <!-- NEWSLETTER -->
+              <div class="footer-subscribe">
+
+                  <form class="subscribe-form">
+
+                     <div class="subscribe-input">
+                          <i class="fa-regular fa-envelope"></i>
+
+                         <input
+                              type="email"
+                              placeholder="Enter your email address"
+                              required
+                          >
+                     </div>
+
+                     <button type="submit" class="subscribe-btn">
+                         Subscribe
+                         <i class="fa-solid fa-arrow-right"></i>
+                     </button>
+
+                  </form>
+
+                 <span class="subscribe-message"></span>
+
+              </div>
+          </p>
+        </div>
+      </div>
+      <div class="wrap foot-bar">
+        <span>© <span class="yr"></span> SwiftTrail Logistics Pvt Ltd.</span
+        ><span>Privacy · Terms · Status</span>
+      </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

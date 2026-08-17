@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pricing & Rate Calculator — SwiftTrail</title>
+    <meta
+      name="description"
+      content="Transparent courier tracking pricing plans plus an instant shipping rate calculator."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/pricing.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="images/logo.webp" alt="Stackly" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="track.html">Track</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a class="active" href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-amber" href="login.html">🔐 Login</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer">
+      <a class="d-link" href="index.html">🏠 Home</a>
+      <a class="d-link" href="track.html">📍 Track</a>
+      <a class="d-link" href="services.html">📦 Services</a>
+      <a class="d-link active" href="pricing.html">💰 Pricing</a>
+      <a class="d-link" href="contact.html">✉️ Contact</a>
+      <a class="btn btn-amber drawer-login" href="login.html">🔐 Login</a>
+      <p class="d-note">No card needed for the trial</p>
+    </aside>
+
+    <!-- 1. HERO -->
+    <header class="p-hero">
+      <div class="tri t1"></div>
+      <div class="tri t2"></div>
+      <div class="tri t3"></div>
+      <div class="wrap">
+        <span class="eyebrow pill-sun">Pricing</span>
+        <h1>Pay for parcels tracked.<br />Nothing else.</h1>
+        <p>
+          No per-seat tax, no setup fee, no surprise overage invoice at 2 AM.
+          Switch the toggle to see annual savings.
+        </p>
+        <div class="toggle-wrap">
+          <span class="tg-l active" id="lblM">Monthly</span>
+          <button class="switch" id="switch"><i></i></button>
+          <span class="tg-l" id="lblY">Annual <b>−20%</b></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. PLANS -->
+    <section class="p-plans">
+      <div class="wrap plan-grid">
+        <article class="plan pl-1 reveal left">
+          <h3>Starter</h3>
+          <p class="pd">For shops finding their feet</p>
+          <div class="price">
+            <span>₹</span><b class="amt" data-m="0" data-y="0">0</b
+            ><small>/mo</small>
+          </div>
+          <ul>
+            <li>250 tracked parcels</li>
+            <li>1 carrier connection</li>
+            <li>Email alerts</li>
+            <li>Public tracking page</li>
+            <li>Community support</li>
+          </ul>
+          <a class="btn btn-dark" href="error.html">Start free</a>
+        </article>
+        <article class="plan pl-2 popular reveal zoom">
+          <span class="tagpop">Most chosen</span>
+          <h3>Growth</h3>
+          <p class="pd">For scaling D2C & 3PL teams</p>
+          <div class="price">
+            <span>₹</span><b class="amt" data-m="4999" data-y="3999">4999</b
+            ><small>/mo</small>
+          </div>
+          <ul>
+            <li>25,000 tracked parcels</li>
+            <li>Unlimited carriers</li>
+            <li>SMS + WhatsApp alerts</li>
+            <li>Branded tracking domain</li>
+            <li>Predictive ETA engine</li>
+            <li>Priority chat support</li>
+          </ul>
+          <a class="btn btn-amber" href="error.html">Start 14-day trial</a>
+        </article>
+        <article class="plan pl-3 reveal right">
+          <h3>Enterprise</h3>
+          <p class="pd">For networks & marketplaces</p>
+          <div class="price">
+            <span>₹</span><b class="amt" data-m="18999" data-y="15199">18999</b
+            ><small>/mo</small>
+          </div>
+          <ul>
+            <li>Unlimited parcels</li>
+            <li>Cold chain sensor suite</li>
+            <li>SSO + audit trail</li>
+            <li>Dedicated success manager</li>
+            <li>99.99% uptime SLA</li>
+            <li>On-prem data residency</li>
+          </ul>
+          <a class="btn btn-teal" href="error.html">Talk to sales</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2.5 SHIPPING EXPERIENCE -->
+    <section class="p-experience">
+      <div class="p-experience-bg"></div>
+
+      <div class="wrap experience-inner">
+        <div class="experience-copy reveal left">
+          <span class="eyebrow pill-sun">Built for real shipments</span>
+
+          <h2>
+            One platform for
+            <span>every delivery.</span>
+          </h2>
+
+          <p>
+            From small online stores to large logistics networks, SwiftTrail
+            gives every shipment the visibility it needs from pickup to
+            doorstep.
+          </p>
+
+          <div class="experience-points">
+            <div class="exp-point">
+              <span>01</span>
+              <div>
+                <h3>Track every parcel</h3>
+                <p>Live shipment updates across every carrier.</p>
+              </div>
+            </div>
+
+            <div class="exp-point">
+              <span>02</span>
+              <div>
+                <h3>Control delivery costs</h3>
+                <p>Clear rates without unexpected billing.</p>
+              </div>
+            </div>
+
+            <div class="exp-point">
+              <span>03</span>
+              <div>
+                <h3>Scale without limits</h3>
+                <p>Move from hundreds to millions of parcels.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="error.html" class="btn btn-amber"> Talk to our team → </a>
+        </div>
+
+        <div class="experience-visual reveal right">
+          <div class="experience-card">
+            <div class="live-dot">
+              <span></span>
+              Live shipment
+            </div>
+
+            <img
+              src="images/shipment2.webp"
+              alt="Logistics warehouse"
+            />
+
+            <div class="shipment-overlay">
+              <div>
+                <small>Shipment value</small>
+                <strong>₹48,920</strong>
+              </div>
+
+              <div class="shipment-status">
+                <span></span>
+                In transit
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. RATE CALCULATOR -->
+    <section class="p-calc">
+      <div class="wrap calc-in">
+        <div class="calc-copy">
+          <span class="eyebrow pill-mint">Instant quote</span>
+          <h2>Shipping rate calculator</h2>
+          <p>
+            A live estimate using our published slabs. Real quotes lock in when
+            you book, and never drift more than 4%.
+          </p>
+          <img
+            src="images/pricing2.webp"
+            alt="Parcel weighing"
+          />
+        </div>
+        <form class="calc-box" id="calcForm">
+          <label
+            >Service line
+            <select id="cSvc">
+              <option value="12">Express same-day</option>
+              <option value="7">Standard ground</option>
+              <option value="26">International air</option>
+              <option value="18">Cold chain</option>
+            </select>
+          </label>
+          <label
+            >Weight — <b id="wOut">2 kg</b>
+            <input type="range" id="cWeight" min="1" max="40" value="2" />
+          </label>
+          <label
+            >Distance — <b id="dOut">120 km</b>
+            <input type="range" id="cDist" min="5" max="2500" value="120" />
+          </label>
+          <label class="chk"
+            ><input type="checkbox" id="cIns" /> Add insurance (2% of
+            value)</label
+          >
+          <label class="chk"
+            ><input type="checkbox" id="cOtp" checked /> OTP + photo proof of
+            delivery</label
+          >
+          <div class="quote">
+            <small>Estimated cost</small><b id="quoteOut">₹0</b
+            ><span id="quoteEta">—</span>
+          </div>
+          <button class="btn btn-amber" onclick="window.location.href = 'error.html'" type="button" id="bookBtn">
+            Book this shipment
+          </button>
+          <p class="cmsg" id="cMsg"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3.5 BUSINESS TYPES -->
+    <section class="p-business">
+      <div class="wrap">
+        <div class="head-p business-head reveal">
+          <span class="eyebrow pill-grape">Made for every scale</span>
+
+          <h2>
+            Pricing that grows
+            <span>with your business.</span>
+          </h2>
+
+          <p>
+            Start small, scale quickly and only pay for the delivery
+            infrastructure you actually need.
+          </p>
+        </div>
+
+        <div class="business-grid">
+          <article class="business-card business-small reveal">
+            <div class="business-image">
+              <img
+                src="images/pricing3.webp"
+                alt="Small business owner"
+              />
+            </div>
+
+            <div class="business-content">
+              <span>01</span>
+              <h3>Growing stores</h3>
+
+              <p>
+                Perfect for D2C brands and small online businesses starting
+                their delivery journey.
+              </p>
+
+              <a href="error.html">Explore Starter →</a>
+            </div>
+          </article>
+
+          <article class="business-card business-growth reveal">
+            <div class="business-image">
+              <img
+                src="images/pricing4.webp"
+                alt="Ecommerce warehouse"
+              />
+            </div>
+
+            <div class="business-content">
+              <span>02</span>
+              <h3>Scaling operations</h3>
+
+              <p>
+                Manage high-volume shipments with multiple carriers and advanced
+                delivery intelligence.
+              </p>
+
+              <a href="error.html">Explore Growth →</a>
+            </div>
+          </article>
+
+          <article class="business-card business-enterprise reveal">
+            <div class="business-image">
+              <img
+                src="images/pricing5.webp"
+                alt="Large logistics warehouse"
+              />
+            </div>
+
+            <div class="business-content">
+              <span>03</span>
+              <h3>Enterprise networks</h3>
+
+              <p>
+                Powerful infrastructure for marketplaces, logistics networks and
+                large organizations.
+              </p>
+
+              <a href="error.html">Talk to sales →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. COMPARISON TABLE -->
+    <section class="p-table">
+      <div class="wrap">
+        <div class="head-p light">
+          <span class="eyebrow pill-sun">Detail</span>
+          <h2>Feature by feature</h2>
+        </div>
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Starter</th>
+                <th>Growth</th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tracked parcels / month</td>
+                <td>250</td>
+                <td>25,000</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td>Carrier connections</td>
+                <td>1</td>
+                <td>Unlimited</td>
+                <td>Unlimited + custom</td>
+              </tr>
+              <tr>
+                <td>Predictive ETA</td>
+                <td class="no">—</td>
+                <td class="yes">✔</td>
+                <td class="yes">✔</td>
+              </tr>
+              <tr>
+                <td>WhatsApp & SMS alerts</td>
+                <td class="no">—</td>
+                <td class="yes">✔</td>
+                <td class="yes">✔</td>
+              </tr>
+              <tr>
+                <td>Cold chain sensors</td>
+                <td class="no">—</td>
+                <td>Add-on</td>
+                <td class="yes">✔</td>
+              </tr>
+              <tr>
+                <td>API rate limit</td>
+                <td>60/min</td>
+                <td>1,200/min</td>
+                <td>Custom</td>
+              </tr>
+              <tr>
+                <td>Support</td>
+                <td>Community</td>
+                <td>Priority chat</td>
+                <td>Dedicated CSM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ADD-ONS -->
+    <section class="p-addons">
+      <div class="wrap">
+        <div class="head-p">
+          <span class="eyebrow pill-grape">Add-ons</span>
+          <h2>Bolt on only what you need</h2>
+        </div>
+        <div class="add-grid">
+          <div class="ad a1 reveal">
+            <b>Cold chain sensors</b>
+            <p>Per-minute temperature logging with breach alerts.</p>
+            <span>₹899 / device / mo</span>
+          </div>
+          <div class="ad a2 reveal">
+            <b>Reverse logistics</b>
+            <p>Automated return pickups with QR-less doorstep scan.</p>
+            <span>₹4 / return</span>
+          </div>
+          <div class="ad a3 reveal">
+            <b>Insurance vault</b>
+            <p>Declared-value cover up to ₹5,00,000 per parcel.</p>
+            <span>2% of value</span>
+          </div>
+          <div class="ad a4 reveal">
+            <b>White-label portal</b>
+            <p>Your domain, your palette, zero SwiftTrail branding.</p>
+            <span>₹2,499 / mo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.5 SHIPPING SCALE -->
+    <section class="p-scale">
+      <div class="p-scale-bg"></div>
+
+      <div class="wrap scale-inner">
+        <div class="scale-content reveal left">
+          <span class="eyebrow pill-sun"> Built to scale </span>
+
+          <h2>Your shipment volume should never slow you down.</h2>
+
+          <p>
+            SwiftTrail infrastructure is designed to handle everything from your
+            first parcel to large-scale enterprise delivery operations.
+          </p>
+
+          <div class="scale-stats">
+            <div>
+              <strong>1M+</strong>
+              <span>Parcels tracked</span>
+            </div>
+
+            <div>
+              <strong>99.4%</strong>
+              <span>On-time delivery</span>
+            </div>
+
+            <div>
+              <strong>128</strong>
+              <span>Countries</span>
+            </div>
+          </div>
+
+          <a href="error.html" class="btn btn-amber">
+            Build your shipping plan →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FAQ / GUARANTEE -->
+    <section class="p-guar">
+      <div class="wrap guar-in">
+        <div class="g-card reveal left">
+          <h3>14-day trial</h3>
+          <p>
+            Full Growth feature set, no card, cancel with one click from
+            settings.
+          </p>
+        </div>
+        <div class="g-card reveal">
+          <h3>No lock-in</h3>
+          <p>
+            Monthly plans cancel monthly. Export every scan record as CSV or
+            JSON.
+          </p>
+        </div>
+        <div class="g-card reveal right">
+          <h3>Price freeze</h3>
+          <p>
+            Annual customers keep their rate for 24 months, even after list
+            price rises.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.5 TRUST -->
+    <section class="p-trust">
+      <div class="wrap">
+        <div class="head-p trust-head reveal">
+          <span class="eyebrow pill-mint"> Customer trust </span>
+
+          <h2>
+            More visibility.
+            <span>Less uncertainty.</span>
+          </h2>
+
+          <p>
+            Everything your operations team needs to make faster and smarter
+            delivery decisions.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card trust-main reveal">
+            <img
+              src="images/service-bg1.webp"
+              alt="Courier delivering package"
+            />
+
+            <div class="trust-overlay">
+              <span class="trust-icon">📦</span>
+
+              <h3>Every parcel has a story. We make it visible.</h3>
+
+              <p>
+                Pickup, transit, hub scans and final delivery stay connected in
+                one simple timeline.
+              </p>
+            </div>
+          </article>
+
+          <div class="trust-side">
+            <article class="trust-mini reveal">
+              <span class="mini-icon">⚡</span>
+
+              <div>
+                <h3>Faster decisions</h3>
+                <p>
+                  Real-time shipment information helps teams react before delays
+                  grow.
+                </p>
+              </div>
+            </article>
+
+            <article class="trust-mini reveal">
+              <span class="mini-icon">🔐</span>
+
+              <div>
+                <h3>Secure operations</h3>
+                <p>
+                  Role-based access, audit trails and secure shipment
+                  information.
+                </p>
+              </div>
+            </article>
+
+            <article class="trust-mini reveal">
+              <span class="mini-icon">📊</span>
+
+              <div>
+                <h3>Clear performance</h3>
+                <p>
+                  Understand delivery performance without complicated reporting.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="van-strip">
+      <div class="road"></div>
+      <div class="van">📦</div>
+    </div>
+
+    <footer class="foot">
+      <div class="wrap foot-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 14px">
+            <a class="brand" href="index.html">
+              <img src="images/logo.webp" alt="Stackly">
+            </a>
+          </div>
+          <p>
+            The tracking layer for modern logistics. One API, every carrier,
+            zero guesswork.
+          </p>
+          <div class="soc">
+
+             <a href="error.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-instagram"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-google-play"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-app-store-ios"></i></a>
+
+         </div>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="track.html">Live tracking</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Network</a></li>
+            <li><a href="pricing.html">Enterprise</a></li>
+            <li><a href="index.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Head office</h4>
+          <p>
+            18 Harbour Line, Anna Salai<br />Chennai 600002, India<br />+91 44
+            4000 8899
+            <!-- NEWSLETTER -->
+              <div class="footer-subscribe">
+
+                  <form class="subscribe-form">
+
+                     <div class="subscribe-input">
+                          <i class="fa-regular fa-envelope"></i>
+
+                         <input
+                              type="email"
+                              placeholder="Enter your email address"
+                              required
+                          >
+                     </div>
+
+                     <button type="submit" class="subscribe-btn">
+                         Subscribe
+                         <i class="fa-solid fa-arrow-right"></i>
+                     </button>
+
+                  </form>
+
+                 <span class="subscribe-message"></span>
+
+              </div>
+          </p>
+        </div>
+      </div>
+      <div class="wrap foot-bar">
+        <span>© <span class="yr"></span> SwiftTrail Logistics Pvt Ltd.</span
+        ><span>Privacy · Terms · Status</span>
+      </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/pricing.js"></script>
+  </body>
+</html>

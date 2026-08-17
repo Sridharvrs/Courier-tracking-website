@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Services & Network — SwiftTrail</title>
+    <meta
+      name="description"
+      content="Express, freight, cold chain and last-mile courier services on one tracking platform."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/services.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="images/logo.webp" alt="Stackly" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="track.html">Track</a></li>
+        <li><a class="active" href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-amber" href="login.html">🔐 Login</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer">
+      <a class="d-link" href="index.html">🏠 Home</a>
+      <a class="d-link" href="track.html">📍 Track</a>
+      <a class="d-link active" href="services.html">📦 Services</a>
+      <a class="d-link" href="pricing.html">💰 Pricing</a>
+      <a class="d-link" href="contact.html">✉️ Contact</a>
+      <a class="btn btn-amber drawer-login" href="login.html">🔐 Login</a>
+      <p class="d-note">7 service lines · 128 countries</p>
+    </aside>
+
+    <!-- 1. SPLIT HERO -->
+    <header class="s-hero">
+      <div class="s-hero-l">
+        <span class="eyebrow pill-cream">Services & network</span>
+        <h1>Seven ways to move a box.<br />One place to watch it.</h1>
+        <p>
+          From a 40-minute city sprint to a temperature-locked pharma corridor,
+          every service line reports into the same tracking timeline.
+        </p>
+        <div class="s-hero-btns">
+          <a class="btn btn-amber" href="error.html">Compare rates</a
+          ><a class="btn btn-ghost" href="error.html">Talk to sales</a>
+        </div>
+      </div>
+      <div class="s-hero-r">
+        <img
+          src="images/logistics3.webp"
+          alt="Courier loading parcels"
+        />
+        <div class="badge-spin">⚡ 40 min<br /><small>city sprint</small></div>
+      </div>
+    </header>
+
+    <!-- 2. SERVICE TABS -->
+    <section class="s-tabs">
+      <div class="wrap">
+        <div class="head-s">
+          <span class="eyebrow pill-teal2">Service lines</span>
+          <h2>Pick the lane that fits the freight</h2>
+        </div>
+        <div class="tabs" id="tabs">
+          <button class="tb active" data-t="0">⚡ Express</button>
+          <button class="tb" data-t="1">🌍 International</button>
+          <button class="tb" data-t="2">❄️ Cold chain</button>
+          <button class="tb" data-t="3">🛵 Last mile</button>
+          <button class="tb" data-t="4">🏭 Bulk freight</button>
+        </div>
+        <div class="panes" id="panes">
+          <div class="pane active">
+            <img
+              src="images/track2.webp"
+              alt="Express courier"
+            />
+            <div>
+              <h3>Express same-day</h3>
+              <p>
+                Booked before 11 AM, delivered before 8 PM inside the same
+                metro. Dedicated rider, no hub hop, live map from minute one.
+              </p>
+              <ul>
+                <li>Avg 4h 12m door-to-door</li>
+                <li>Up to 20 kg per booking</li>
+                <li>₹99 base + ₹12/km</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pane">
+            <img
+              src="images/shipment.webp"
+              alt="International freight"
+            />
+            <div>
+              <h3>International air</h3>
+              <p>
+                128 destination countries with customs milestones baked into the
+                same timeline — export scan, clearance, duty, import handover.
+              </p>
+              <ul>
+                <li>2–5 business days typical</li>
+                <li>DDP & DAP incoterms</li>
+                <li>Auto HS-code suggestions</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pane">
+            <img
+              src="images/logistics.webp"
+              alt="Cold chain van"
+            />
+            <div>
+              <h3>Cold chain</h3>
+              <p>
+                −25°C to +8°C corridors for pharma, vaccines and gourmet food.
+                Sensor breach alerts fire before the threshold, not after.
+              </p>
+              <ul>
+                <li>Per-minute temperature log</li>
+                <li>Validated packaging kits</li>
+                <li>Audit export in one click</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pane">
+            <img
+              src="images/truck1.webp"
+              alt="Last mile rider"
+            />
+            <div>
+              <h3>Last mile</h3>
+              <p>
+                The final 8 kilometres, run by 14,000 vetted riders with OTP
+                handover, photo proof and 2-hour customer windows.
+              </p>
+              <ul>
+                <li>3 free re-attempts</li>
+                <li>Cash & UPI on delivery</li>
+                <li>Reverse pickup supported</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pane">
+            <img
+              src="images/truck2.webp"
+              alt="Freight truck"
+            />
+            <div>
+              <h3>Bulk freight</h3>
+              <p>
+                Full and part truckloads across national corridors with sealed
+                container IDs and night-run scheduling.
+              </p>
+              <ul>
+                <li>1t – 24t capacity</li>
+                <li>Seal tamper alerts</li>
+                <li>Dock slot booking API</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     3. SERVICE EXPERIENCE
+===================================================== -->
+    <section class="service-experience">
+      <div class="se-bg"></div>
+      <div class="se-overlay"></div>
+
+      <div class="wrap">
+        <div class="se-content reveal">
+          <span class="eyebrow se-pill"> 🚚 Built for every mile </span>
+
+          <h2>
+            One network.
+            <span>Every kind of delivery.</span>
+          </h2>
+
+          <p>
+            From a single local package to thousands of shipments moving across
+            borders, SwiftTrail keeps every delivery visible, connected and
+            predictable.
+          </p>
+
+          <div class="se-actions">
+            <a href="error.html" class="btn btn-amber"> Explore pricing → </a>
+
+            <a href="error.html" class="btn btn-ghost"> Track a shipment </a>
+          </div>
+        </div>
+
+        <!-- FLOATING INFORMATION -->
+        <div class="se-floating se-f-one reveal zoom">
+          <span>⚡</span>
+
+          <div>
+            <strong>40 min</strong>
+            <small>Fastest city delivery</small>
+          </div>
+        </div>
+
+        <div class="se-floating se-f-two reveal zoom">
+          <span>🌍</span>
+
+          <div>
+            <strong>128</strong>
+            <small>Countries connected</small>
+          </div>
+        </div>
+
+        <!-- <div class="se-floating se-f-three reveal zoom">
+          <span>📍</span>
+
+          <div>
+            <strong>8 sec</strong>
+            <small>GPS refresh rate</small>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- 3. NETWORK STATS -->
+    <section class="s-stats">
+      <div class="wrap stat-grid">
+        <div class="st reveal zoom">
+          <b data-count="14" data-suffix="k">0</b><span>Riders on road</span>
+        </div>
+        <div class="st reveal zoom">
+          <b data-count="212" data-suffix="">0</b><span>Smart hubs</span>
+        </div>
+        <div class="st reveal zoom">
+          <b data-count="128" data-suffix="">0</b><span>Countries served</span>
+        </div>
+        <div class="st reveal zoom">
+          <b data-count="99.4" data-suffix="%">0</b><span>On-time rate</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS -->
+    <section class="s-how">
+      <div class="wrap">
+        <div class="head-s light">
+          <span class="eyebrow pill-cream">Integration</span>
+          <h2>Live in an afternoon</h2>
+          <p>Four steps from signup to your first tracked parcel.</p>
+        </div>
+        <div class="how-grid">
+          <article class="hw reveal left">
+            <span class="hnum">01</span>
+            <h4>Create workspace</h4>
+            <p>
+              Pick a role — shipper, carrier or admin — and invite your ops
+              team.
+            </p>
+          </article>
+          <article class="hw reveal">
+            <span class="hnum">02</span>
+            <h4>Connect carriers</h4>
+            <p>
+              Toggle on any of 40 carriers or push scans through our REST
+              endpoint.
+            </p>
+          </article>
+          <article class="hw reveal">
+            <span class="hnum">03</span>
+            <h4>Brand the page</h4>
+            <p>
+              Your logo, colours and domain on the customer-facing tracking
+              page.
+            </p>
+          </article>
+          <article class="hw reveal right">
+            <span class="hnum">04</span>
+            <h4>Go live</h4>
+            <p>
+              Webhooks start firing. Support tickets start dropping. That is the
+              whole trick.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     4. END TO END JOURNEY
+===================================================== -->
+    <section class="service-journey">
+      <div class="wrap">
+        <div class="sj-heading reveal">
+          <span class="eyebrow sj-pill"> 📦 One continuous journey </span>
+
+          <h2>
+            From pickup
+            <span>to doorstep.</span>
+          </h2>
+
+          <p>
+            Every handoff is connected. Every milestone is visible. Your
+            shipment never disappears between the lines.
+          </p>
+        </div>
+
+        <div class="sj-scene">
+          <!-- MAIN IMAGE -->
+          <div class="sj-image reveal left">
+            <img
+              src="images/truck1.webp"
+              alt="SwiftTrail delivery truck"
+            />
+
+            <div class="sj-image-label">
+              <span></span>
+              Shipment in motion
+            </div>
+          </div>
+
+          <!-- JOURNEY -->
+          <div class="sj-route reveal right">
+            <div class="sj-step active">
+              <div class="sj-dot">01</div>
+
+              <div>
+                <small>ORIGIN</small>
+                <h3>Pickup confirmed</h3>
+                <p>Package collected and barcode scanned at origin.</p>
+              </div>
+            </div>
+
+            <div class="sj-line"></div>
+
+            <div class="sj-step">
+              <div class="sj-dot">02</div>
+
+              <div>
+                <small>HUB</small>
+                <h3>Sorted & routed</h3>
+                <p>Smart routing assigns the fastest available corridor.</p>
+              </div>
+            </div>
+
+            <div class="sj-line"></div>
+
+            <div class="sj-step">
+              <div class="sj-dot">03</div>
+
+              <div>
+                <small>TRANSIT</small>
+                <h3>Moving between cities</h3>
+                <p>Live scans keep the shipment visible throughout transit.</p>
+              </div>
+            </div>
+
+            <div class="sj-line"></div>
+
+            <div class="sj-step final">
+              <div class="sj-dot">04</div>
+
+              <div>
+                <small>DESTINATION</small>
+                <h3>Delivered safely</h3>
+                <p>OTP, signature or photo proof completes the journey.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     5. NETWORK CONTROL
+===================================================== -->
+    <section class="network-control">
+      <div class="nc-background"></div>
+      <div class="nc-overlay"></div>
+
+      <div class="wrap">
+        <div class="nc-content reveal">
+          <span class="eyebrow nc-pill"> 🛰️ Network intelligence </span>
+
+          <h2>
+            A network that
+            <span>sees everything.</span>
+          </h2>
+
+          <!-- <p>
+            Hubs, riders, trucks, flights and delivery routes are connected
+            through one operational layer, giving your team a complete picture
+            of every shipment.
+          </p> -->
+        </div>
+
+        <!-- NETWORK MARKERS -->
+
+        <div class="nc-marker nc-mumbai">
+          <span></span>
+          <div>
+            <strong>Mumbai</strong>
+            <small>42 active routes</small>
+          </div>
+        </div>
+
+        <div class="nc-marker nc-chennai">
+          <span></span>
+          <div>
+            <strong>Chennai</strong>
+            <small>68 active routes</small>
+          </div>
+        </div>
+
+        <div class="nc-marker nc-dubai">
+          <span></span>
+          <div>
+            <strong>Dubai</strong>
+            <small>21 active routes</small>
+          </div>
+        </div>
+
+        <div class="nc-marker nc-singapore">
+          <span></span>
+          <div>
+            <strong>Singapore</strong>
+            <small>17 active routes</small>
+          </div>
+        </div>
+
+        <!-- ROUTE LINES -->
+
+        <svg class="nc-routes" viewBox="0 0 1200 600">
+          <path d="M280 370 C450 320 520 250 650 280" />
+          <path d="M650 280 C750 220 820 210 930 245" />
+          <path d="M650 280 C700 350 790 380 900 390" />
+        </svg>
+
+        <div class="nc-bottom reveal">
+          <div>
+            <strong>212</strong>
+            <span>Connected hubs</span>
+          </div>
+
+          <div>
+            <strong>14k+</strong>
+            <span>Active riders</span>
+          </div>
+
+          <div>
+            <strong>128</strong>
+            <span>Countries</span>
+          </div>
+
+          <div>
+            <strong>8 sec</strong>
+            <span>Average GPS refresh</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. COVERAGE CARDS -->
+    <section class="s-cover">
+      <div class="wrap">
+        <div class="head-s">
+          <span class="eyebrow pill-pink2">Coverage</span>
+          <h2>Regions we run hard</h2>
+        </div>
+        <div class="cover-grid">
+          <div class="cv c-a reveal">
+            <img
+              src="images/services5.webp"
+              alt="India"
+            />
+            <div class="cvb">
+              <b>South Asia</b>
+              <p>92 cities, 6,400 pin codes, next-day standard.</p>
+              <span>Hubs: 88</span>
+            </div>
+          </div>
+          <div class="cv c-b reveal">
+            <img
+              src="images/services6.webp"
+              alt="Middle East"
+            />
+            <div class="cvb">
+              <b>Middle East</b>
+              <p>Gulf corridor with bonded warehouse access.</p>
+              <span>Hubs: 21</span>
+            </div>
+          </div>
+          <div class="cv c-c reveal">
+            <img
+              src="images/services7.webp"
+              alt="Europe"
+            />
+            <div class="cvb">
+              <b>Europe</b>
+              <p>EU-wide road network, IOSS ready for e-commerce.</p>
+              <span>Hubs: 57</span>
+            </div>
+          </div>
+          <div class="cv c-d reveal">
+            <img
+              src="images/services8.webp"
+              alt="North America"
+            />
+            <div class="cvb">
+              <b>North America</b>
+              <p>Coast-to-coast air with regional last-mile partners.</p>
+              <span>Hubs: 46</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CTA -->
+    <section class="s-cta">
+      <div class="wrap cta-in">
+        <div>
+          <h2>Not sure which lane you need?</h2>
+          <p>
+            Send us a typical shipment profile and we will map it to a service
+            line, with real numbers, within one working day.
+          </p>
+        </div>
+        <a class="btn btn-amber" href="error.html">Get a routing plan →</a>
+      </div>
+    </section>
+
+    <div class="van-strip">
+      <div class="road"></div>
+      <div class="van">🚛</div>
+    </div>
+
+    <footer class="foot">
+      <div class="wrap foot-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 14px">
+            <a class="brand" href="index.html">
+              <img src="images/logo.webp" alt="Stackly">
+            </a>
+          </div>
+          <p>
+            The tracking layer for modern logistics. One API, every carrier,
+            zero guesswork.
+          </p>
+          <div class="soc">
+
+             <a href="error.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-instagram"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-google-play"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-app-store-ios"></i></a>
+
+         </div>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="track.html">Live tracking</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Network</a></li>
+            <li><a href="pricing.html">Enterprise</a></li>
+            <li><a href="index.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Head office</h4>
+          <p>
+            18 Harbour Line, Anna Salai<br />Chennai 600002, India<br />+91 44
+            4000 8899
+            <!-- NEWSLETTER -->
+              <div class="footer-subscribe">
+
+                  <form class="subscribe-form">
+
+                     <div class="subscribe-input">
+                          <i class="fa-regular fa-envelope"></i>
+
+                         <input
+                              type="email"
+                              placeholder="Enter your email address"
+                              required
+                          >
+                     </div>
+
+                     <button type="submit" class="subscribe-btn">
+                         Subscribe
+                         <i class="fa-solid fa-arrow-right"></i>
+                     </button>
+
+                  </form>
+
+                 <span class="subscribe-message"></span>
+
+              </div>
+          </p>
+          
+        </div>
+      </div>
+      <div class="wrap foot-bar">
+        <span>© <span class="yr"></span> SwiftTrail Logistics Pvt Ltd.</span
+        ><span>Privacy · Terms · Status</span>
+      </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/services.js"></script>
+  </body>
+</html>

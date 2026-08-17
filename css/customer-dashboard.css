@@ -1,0 +1,62 @@
+/* ===== Customer Dashboard — page specific ===== */
+body.cust{background:
+  radial-gradient(1000px 380px at 100% -8%,rgba(123,92,255,.16),transparent 62%),
+  radial-gradient(760px 320px at -5% 100%,rgba(0,212,177,.16),transparent 60%),
+  #eef1fa}
+
+.filterbar{display:flex;flex-wrap:wrap;gap:8px}
+.fbtn{padding:9px 16px;border-radius:999px;font-weight:800;font-size:.8rem;background:#fff;border:2px solid #dfe4f4;color:#3a4372;transition:.25s}
+.fbtn:hover{transform:translateY(-2px)}
+.fbtn.active{background:var(--navy);border-color:var(--navy);color:var(--amber)}
+
+.trackbox{display:flex;flex-wrap:wrap;gap:10px}
+.trackbox input{flex:1;min-width:200px;padding:14px 16px;border-radius:14px;border:2px solid #e0e6f7;background:#f7f9ff;
+  font-family:var(--font);font-size:.92rem;outline:0;transition:border-color .25s}
+.trackbox input:focus{border-color:var(--amber);background:#fff}
+
+.trk-result{margin-top:18px}
+.trk-card{border-radius:16px;padding:18px;background:linear-gradient(140deg,#151d52,#0a0e2a);color:#fff;animation:pop .5s cubic-bezier(.2,.9,.25,1)}
+@keyframes pop{from{opacity:0;transform:scale(.95) translateY(14px)}to{opacity:1;transform:none}}
+.trk-card h4{font-size:1.1rem}
+.trk-card .meta{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0 16px;font-size:.84rem;opacity:.9}
+.trk-card .meta b{display:block;color:var(--amber);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.trk-steps{display:flex;gap:6px;margin-top:14px}
+.trk-steps div{flex:1;text-align:center;font-size:.7rem;font-weight:800;opacity:.55}
+.trk-steps div.ok{opacity:1;color:var(--teal)}
+.trk-steps div i{display:block;font-size:1rem;margin-bottom:5px}
+
+.feed{max-height:280px;overflow-y:auto}
+.feed li{display:flex;gap:11px;padding:11px;border-radius:13px;background:#f6f8ff;margin-bottom:9px;font-size:.85rem;
+  border-left:4px solid var(--violet);animation:slideIn .45s ease both}
+.feed li:nth-child(even){border-left-color:var(--amber)}
+.feed li b{display:block;color:#1a2150}
+.feed li span{color:#5b648e;font-size:.76rem}
+@keyframes slideIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
+
+.ticks li{display:flex;gap:10px;align-items:center;padding:11px 0;border-bottom:1px dashed #e2e7f6;font-size:.87rem;font-weight:700;color:#2b3468}
+.ticks li i{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#e9ecff;color:var(--violet);font-size:.8rem}
+
+.addr{border-radius:18px;padding:18px;color:#fff;position:relative;overflow:hidden;box-shadow:0 16px 30px rgba(13,18,50,.16);
+  transition:transform .3s}
+.addr:hover{transform:translateY(-6px) rotate(-.6deg)}
+.addr h4{font-size:1rem;margin-bottom:6px}
+.addr p{font-size:.85rem;opacity:.95;line-height:1.6}
+.addr .lbl{position:absolute;top:14px;right:14px;font-size:.64rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.22)}
+.addr .acts{display:flex;gap:8px;margin-top:14px}
+.addr .acts button{padding:8px 13px;border-radius:10px;font-size:.75rem;font-weight:800;background:rgba(255,255,255,.2);color:#fff}
+.addr .acts button:hover{background:rgba(255,255,255,.34)}
+
+.quickamt{display:flex;gap:8px}
+.quickamt button{flex:1;padding:11px;border-radius:12px;font-weight:800;font-size:.82rem;background:#eef1fa;color:#2b3468;border:2px solid #dfe4f4}
+.quickamt button:hover{background:var(--navy);color:var(--amber)}
+
+.switchrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed #e2e7f6;
+  font-size:.88rem;font-weight:700;color:#2b3468}
+.sw{position:relative;width:50px;height:28px;flex:0 0 50px}
+.sw input{opacity:0;width:0;height:0}
+.sw i{position:absolute;inset:0;border-radius:999px;background:#d6dcf0;transition:background .3s}
+.sw i::after{content:"";position:absolute;top:4px;left:4px;width:20px;height:20px;border-radius:50%;background:#fff;
+  transition:transform .3s cubic-bezier(.5,1.6,.5,1);box-shadow:0 3px 8px rgba(0,0,0,.2)}
+.sw input:checked + i{background:linear-gradient(120deg,var(--teal),#00a7ff)}
+.sw input:checked + i::after{transform:translateX(22px)}

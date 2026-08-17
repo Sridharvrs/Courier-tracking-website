@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign Up — SwiftTrail Courier Tracking</title>
+<meta name="description" content="Create your SwiftTrail account and start tracking shipments in real time.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/signup.css">
+</head>
+<body class="signup-body">
+
+<nav class="nav">
+  <a class="brand" href="index.html">
+        <img src="images/logo.webp" alt="Stackly" />
+      </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="track.html">Track</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a class="btn btn-ghost" href="login.html">🔐 Login</a>
+    <a class="btn btn-amber active-btn" href="signup.html">✨ Sign Up</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <a class="d-link" href="index.html">🏠 Home</a>
+  <a class="d-link" href="track.html">📍 Track</a>
+  <a class="d-link" href="services.html">📦 Services</a>
+  <a class="d-link" href="pricing.html">💰 Pricing</a>
+  <a class="d-link" href="contact.html">✉️ Contact</a>
+  <a class="btn btn-amber drawer-login" href="login.html">🔐 Login</a>
+  <p class="d-note">Join 4.2M daily tracked parcels.</p>
+</aside>
+
+<!-- 1. HERO SIGNUP -->
+<section class="su-hero" id="panel">
+  <div class="su-orb o1"></div>
+  <div class="su-orb o2"></div>
+  <div class="su-orb o3"></div>
+  <div class="su-orb o4"></div>
+
+  <div class="wrap su-hero-in">
+    <div class="su-copy reveal left">
+      <span class="eyebrow su-pill">Start tracking today</span>
+      <h1>Ship smarter.<br><em>Track everything.</em></h1>
+      <p>Create your free SwiftTrail account and get real-time visibility across every carrier, warehouse and last-mile partner in one place.</p>
+      <div class="su-badges">
+        <span><i class="fa-solid fa-check"></i> Free forever plan</span>
+        <span><i class="fa-solid fa-check"></i> No credit card</span>
+        <span><i class="fa-solid fa-check"></i> 2-minute setup</span>
+      </div>
+      <div class="su-trust">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=120&q=80" alt="User 1">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="User 2">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="User 3">
+        <small>Trusted by <b>12,000+</b> shippers</small>
+      </div>
+    </div>
+
+    <div class="su-card reveal right">
+      <button class="su-close" id="signupClose" title="Close and go home" aria-label="Close">✕</button>
+      <div class="su-card-head">
+        <span class="su-icon">📦</span>
+        <div>
+          <h2>Create account</h2>
+          <p>Already have one? <a href="login.html">Sign in →</a></p>
+        </div>
+      </div>
+
+      <form id="signupForm" novalidate>
+        <label class="su-label">
+          <span>Full name</span>
+          <div class="su-input-wrap">
+            <i class="fa-regular fa-user"></i>
+            <input type="text" id="name" placeholder="John Doe" autocomplete="name">
+          </div>
+        </label>
+
+        <label class="su-label">
+          <span>Email address</span>
+          <div class="su-input-wrap">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" id="email" placeholder="you@company.com" autocomplete="email">
+          </div>
+        </label>
+
+        <label class="su-label">
+          <span>Password</span>
+          <div class="su-input-wrap">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" placeholder="••••••••" autocomplete="new-password">
+            <button type="button" class="su-eye" id="togglePassword" aria-label="Show password">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <small class="su-hint">Min 8 chars, uppercase, lowercase, number & special character.</small>
+        </label>
+
+        <label class="su-label">
+          <span>Confirm password</span>
+          <div class="su-input-wrap">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="confirmPassword" placeholder="••••••••" autocomplete="new-password">
+            <button type="button" class="su-eye" id="toggleConfirmPassword" aria-label="Show confirm password">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox">
+          <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</span>
+        </label>
+
+        <button class="btn submit-btn" type="submit">
+          <span>Create Account</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="su-or"><span>or sign up with</span></div>
+      <div class="su-socials">
+        <button class="social-btn su-google" aria-label="Sign up with Google">
+          <i class="fa-brands fa-google"></i> Google
+        </button>
+        <button class="social-btn su-apple" aria-label="Sign up with Apple">
+          <i class="fa-brands fa-apple"></i> Apple
+        </button>
+        <button class="social-btn su-sso" aria-label="Sign up with SSO">
+          <i class="fa-solid fa-key"></i> SSO
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script src="js/common.js"></script>
+<script src="js/signup.js"></script>
+</body>
+</html>

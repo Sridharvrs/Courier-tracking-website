@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Customer Dashboard — SwiftTrail Courier</title>
+<meta name="description" content="SwiftTrail customer dashboard: track parcels, book pickups, manage addresses, wallet, and support tickets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/customer-dashboard.css">
+</head>
+<body class="cust">
+
+<div class="shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="side" id="side">
+    <a class="brand" href="index.html">
+      <img src="images/logo.webp" alt="Stackly">
+    </a>
+
+    <div class="who">
+      <img src="images/team1.webp" alt="Customer avatar">
+      <div><b class="profileName">Meera Raghav</b><small>Customer</small></div>
+    </div>
+
+    <div class="side-scroll">
+      <p class="side-label">Main</p>
+      <button class="mlink active" data-mod="overview"><span class="ic"><i class="fa-solid fa-gauge-high"></i></span> Overview</button>
+      <button class="mlink" data-mod="shipments"><span class="ic"><i class="fa-solid fa-box-open"></i></span> My Shipments <span class="badge">6</span></button>
+      <button class="mlink" data-mod="track"><span class="ic"><i class="fa-solid fa-location-crosshairs"></i></span> Live Tracking</button>
+      <p class="side-label">Manage</p>
+      <button class="mlink" data-mod="book"><span class="ic"><i class="fa-solid fa-calendar-plus"></i></span> Book Pickup</button>
+      <button class="mlink" data-mod="address"><span class="ic"><i class="fa-solid fa-address-book"></i></span> Address Book</button>
+      <button class="mlink" data-mod="wallet"><span class="ic"><i class="fa-solid fa-wallet"></i></span> Wallet &amp; Bills</button>
+      <p class="side-label">Help</p>
+      <button class="mlink" data-mod="support"><span class="ic"><i class="fa-solid fa-headset"></i></span> Support</button>
+      <button class="mlink" data-mod="settings"><span class="ic"><i class="fa-solid fa-sliders"></i></span> Settings</button>
+    </div>
+
+    <div class="side-foot">
+      <button class="logout" id="logoutSide"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+    <header class="topbar">
+      <button class="sb-toggle" id="sbToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+      <div class="tb-title" id="tbTitle">Overview <small>Welcome back, Meera</small></div>
+      <div class="tb-right">
+        <div class="tb-search"><i class="fa-solid fa-magnifying-glass" style="color:#5b648e"></i><input id="topSearch" placeholder="Search tracking ID…"></div>
+        <button class="tb-btn" id="bellBtn" aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="dot"></span></button>
+        <button class="tb-logout" id="logoutTop"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </header>
+
+    <main class="page">
+
+      <!-- ---------- OVERVIEW ---------- -->
+      <section class="module on" id="m-overview">
+        <div class="mod-head">
+          <div><span class="chip">Snapshot</span><h2>Delivery Overview</h2><p>Everything moving under your account today — live counters refresh every few seconds.</p></div>
+          <button class="pill-btn spacer" data-go="book"><i class="fa-solid fa-plus"></i> New Pickup</button>
+        </div>
+
+        <div class="grid g4 reveal">
+          <div class="card c-violet"><p class="k">In Transit</p><p class="v count" data-to="12">0</p><p class="s"><i class="fa-solid fa-arrow-up"></i> 3 more than last week</p></div>
+          <div class="card c-amber"><p class="k">Out for Delivery</p><p class="v count" data-to="4">0</p><p class="s">ETA today before 7 PM</p></div>
+          <div class="card c-teal"><p class="k">Delivered (30d)</p><p class="v count" data-to="87">0</p><p class="s">98.6% on-time rate</p></div>
+          <div class="card c-pink"><p class="k">Issues Raised</p><p class="v count" data-to="2">0</p><p class="s">1 resolved · 1 in review</p></div>
+        </div>
+
+        <div class="grid g21" style="margin-top:16px">
+          <div class="panel reveal">
+            <h3>Monthly Shipping Volume</h3><p class="sub">Parcels booked by you over the last 8 months.</p>
+            <div class="chart" id="custChart"></div>
+          </div>
+          <div class="panel reveal">
+            <h3>Active Delivery</h3><p class="sub">ST-99120 · Chennai → Bengaluru</p>
+            <div class="live">
+              <b>Rider: Arun K.</b><p style="opacity:.85;font-size:.85rem;margin-top:5px">Vehicle TN-09 AC 4412 · 42 km away</p>
+              <div class="rowline" style="margin-top:18px;color:#fff"><span>Progress</span><span>72%</span></div>
+              <div class="bar" style="background:rgba(255,255,255,.2)"><i style="background:linear-gradient(90deg,#ffb020,#ff5c8a)" data-w="72"></i></div>
+              <div class="road"></div><div class="van">🚚</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid g3 reveal" style="margin-top:16px">
+          <div class="card c-navy"><h4>Fastest Route Used</h4><p class="s" style="margin-top:8px">NH-44 corridor · avg 9h 20m door-to-door for your last 12 shipments.</p></div>
+          <div class="card c-sky"><h4>Carbon Saved</h4><p class="v">128 kg</p><p class="s">By choosing consolidated EV delivery slots.</p></div>
+          <div class="card c-lime"><h4>Loyalty Tier</h4><p class="v">Gold</p><p class="s">460 points to Platinum · free insurance unlocked.</p></div>
+        </div>
+      </section>
+
+      <!-- ---------- SHIPMENTS ---------- -->
+      <section class="module" id="m-shipments">
+        <div class="mod-head">
+          <div><span class="chip">Records</span><h2>My Shipments</h2><p>Filter, search and inspect every parcel booked from this account.</p></div>
+          <div class="spacer filterbar">
+            <button class="fbtn active" data-f="all">All</button>
+            <button class="fbtn" data-f="transit">In Transit</button>
+            <button class="fbtn" data-f="delivered">Delivered</button>
+            <button class="fbtn" data-f="pending">Pending</button>
+          </div>
+        </div>
+        <div class="panel reveal" style="overflow-x:auto">
+          <table class="tbl"><thead><tr><th>Tracking ID</th><th>Route</th><th>Service</th><th>Weight</th><th>Status</th><th>ETA</th></tr></thead>
+          <tbody id="shipRows"></tbody></table>
+        </div>
+        <div class="grid g3 reveal" style="margin-top:16px">
+          <div class="card c-slate"><h4>Avg Delivery Time</h4><p class="v">1.8 d</p><p class="s">Across all your services.</p></div>
+          <div class="card c-teal"><h4>Cheapest Lane</h4><p class="v">₹64</p><p class="s">Chennai → Coimbatore, surface.</p></div>
+          <div class="card c-pink"><h4>Returns</h4><p class="v">3</p><p class="s">All refunded within 48h.</p></div>
+        </div>
+      </section>
+
+      <!-- ---------- LIVE TRACKING ---------- -->
+      <section class="module" id="m-track">
+        <div class="mod-head"><div><span class="chip">Realtime</span><h2>Live Tracking Console</h2><p>Try demo IDs: <b>ST-99120</b>, <b>ST-44781</b>, <b>ST-10233</b>.</p></div></div>
+        <div class="panel reveal">
+          <div class="trackbox">
+            <input id="trkInput" placeholder="Enter tracking ID e.g. ST-99120">
+            <button class="pill-btn" id="trkBtn"><i class="fa-solid fa-magnifying-glass"></i> Track</button>
+          </div>
+          <div id="trkResult" class="trk-result"></div>
+        </div>
+        <div class="grid g2 reveal" style="margin-top:16px">
+          <div class="panel"><h3>Scan Feed</h3><p class="sub">Auto-updating hub events.</p><ul class="feed" id="feed"></ul></div>
+          <div class="panel"><h3>Delivery Preferences</h3><p class="sub">Applied to the selected parcel.</p>
+            <div class="field"><label>Drop instruction</label><select><option>Hand to me only</option><option>Leave with security</option><option>Neighbour accepted</option></select></div>
+            <div class="field"><label>Preferred slot</label><select><option>9 AM – 12 PM</option><option>12 PM – 4 PM</option><option>4 PM – 8 PM</option></select></div>
+            <button class="pill-btn alt" data-toast="Delivery preference saved for this parcel.">Save Preference</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- BOOK PICKUP ---------- -->
+      <section class="module" id="m-book">
+        <div class="mod-head"><div><span class="chip">Create</span><h2>Book a Pickup</h2><p>Instant quote calculated as you type — no hidden fuel charges.</p></div></div>
+        <div class="grid g21">
+          <div class="panel reveal">
+            <h3>Shipment Details</h3><p class="sub">All fields required for a confirmed slot.</p>
+            <div class="grid g2">
+              <div class="field"><label>Pickup city</label><input id="bkFrom" value="Chennai"></div>
+              <div class="field"><label>Drop city</label><input id="bkTo" value="Bengaluru"></div>
+              <div class="field"><label>Weight (kg)</label><input type="number" id="bkKg" value="3" min="0.5" step="0.5"></div>
+              <div class="field"><label>Service</label><select id="bkSvc"><option value="1">Surface (2-4 days)</option><option value="1.7">Express (24h)</option><option value="2.6">Same-day Flash</option></select></div>
+              <div class="field"><label>Pickup date</label><input type="date" id="bkDate"></div>
+              <div class="field"><label>Insurance</label><select id="bkIns"><option value="0">None</option><option value="49">Standard ₹49</option><option value="149">Premium ₹149</option></select></div>
+            </div>
+            <div class="field"><label>Package note</label><textarea rows="3" placeholder="Fragile ceramic, handle upright"></textarea></div>
+            <button class="pill-btn" id="bkConfirm"><i class="fa-solid fa-check"></i> Confirm Booking</button>
+          </div>
+          <div class="panel reveal">
+            <h3>Live Quote</h3><p class="sub">Updates instantly.</p>
+            <div class="card c-amber" style="margin-bottom:14px"><p class="k">Estimated Total</p><p class="v" id="bkTotal">₹0</p><p class="s" id="bkBreak">—</p></div>
+            <ul class="ticks">
+              <li><i class="fa-solid fa-shield-halved"></i> Free ₹5,000 base cover</li>
+              <li><i class="fa-solid fa-camera"></i> Photo proof of delivery</li>
+              <li><i class="fa-solid fa-rotate-left"></i> Free reschedule once</li>
+              <li><i class="fa-solid fa-leaf"></i> EV fleet on metro lanes</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- ADDRESS BOOK ---------- -->
+      <section class="module" id="m-address">
+        <div class="mod-head"><div><span class="chip">Saved</span><h2>Address Book</h2><p>Reusable pickup and drop locations with default tagging.</p></div>
+          <button class="pill-btn spacer" id="addAddr"><i class="fa-solid fa-plus"></i> Add Address</button></div>
+        <div class="grid g3 reveal" id="addrGrid"></div>
+        <div class="panel reveal" style="margin-top:16px">
+          <h3>Coverage Check</h3><p class="sub">Verify a PIN code before booking.</p>
+          <div class="trackbox"><input id="pinInput" placeholder="Enter 6-digit PIN code"><button class="pill-btn alt" id="pinBtn">Check</button></div>
+          <p class="note" id="pinOut" style="margin-top:12px">Serviceable across 19,400+ PIN codes.</p>
+        </div>
+      </section>
+
+      <!-- ---------- WALLET ---------- -->
+      <section class="module" id="m-wallet">
+        <div class="mod-head"><div><span class="chip">Money</span><h2>Wallet &amp; Billing</h2><p>Prepaid balance, invoices and saved payment methods.</p></div></div>
+        <div class="grid g3 reveal">
+          <div class="card c-violet"><p class="k">Wallet Balance</p><p class="v" id="walBal">₹4,820</p><p class="s">Auto top-up at ₹500</p></div>
+          <div class="card c-teal"><p class="k">Spent This Month</p><p class="v">₹9,340</p><p class="s">18 shipments</p></div>
+          <div class="card c-lime"><p class="k">Cashback Earned</p><p class="v">₹612</p><p class="s">Gold tier 4% back</p></div>
+        </div>
+        <div class="grid g21" style="margin-top:16px">
+          <div class="panel reveal" style="overflow-x:auto"><h3>Invoices</h3><p class="sub">Downloadable GST invoices.</p>
+            <table class="tbl"><thead><tr><th>Invoice</th><th>Date</th><th>Shipments</th><th>Amount</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>INV-2291</td><td>02 Aug 2026</td><td>18</td><td>₹9,340</td><td><span class="tag t-green">Paid</span></td></tr>
+              <tr><td>INV-2190</td><td>02 Jul 2026</td><td>21</td><td>₹11,120</td><td><span class="tag t-green">Paid</span></td></tr>
+              <tr><td>INV-2088</td><td>02 Jun 2026</td><td>14</td><td>₹7,460</td><td><span class="tag t-green">Paid</span></td></tr>
+              <tr><td>INV-2401</td><td>02 Sep 2026</td><td>6</td><td>₹3,180</td><td><span class="tag t-amber">Due</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="panel reveal"><h3>Add Money</h3><p class="sub">Instant UPI / card top-up.</p>
+            <div class="field"><label>Amount (₹)</label><input type="number" id="topAmt" value="1000"></div>
+            <div class="quickamt"><button data-amt="500">₹500</button><button data-amt="1000">₹1000</button><button data-amt="2500">₹2500</button></div>
+            <button class="pill-btn" id="topBtn" style="margin-top:14px"><i class="fa-solid fa-bolt"></i> Top Up Wallet</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- SUPPORT ---------- -->
+      <section class="module" id="m-support">
+        <div class="mod-head"><div><span class="chip">Help</span><h2>Support Center</h2><p>Raise a ticket or browse the fastest answers.</p></div></div>
+        <div class="grid g21">
+          <div class="panel reveal"><h3>Raise a Ticket</h3><p class="sub">Average first response: 11 minutes.</p>
+            <div class="field"><label>Related tracking ID</label><input id="spId" placeholder="ST-99120"></div>
+            <div class="field"><label>Issue type</label><select><option>Delayed delivery</option><option>Damaged parcel</option><option>Wrong address</option><option>Refund request</option></select></div>
+            <div class="field"><label>Describe the issue</label><textarea rows="4" id="spMsg" placeholder="Tell us what happened…"></textarea></div>
+            <button class="pill-btn" id="spBtn"><i class="fa-solid fa-paper-plane"></i> Submit Ticket</button>
+            <p class="note" id="spOut" style="margin-top:12px"></p>
+          </div>
+          <div class="panel reveal"><h3>Open Tickets</h3><p class="sub">Live status of your requests.</p>
+            <ul class="tl">
+              <li class="done"><b>TKT-8891 · Refund processed</b><span>₹340 credited to wallet · 2 days ago</span></li>
+              <li><b>TKT-9042 · Delay investigation</b><span>Hub team responded · awaiting your reply</span></li>
+              <li><b>TKT-9110 · Address correction</b><span>Applied to ST-44781 · 4 hours ago</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid g3 reveal" style="margin-top:16px">
+          <div class="card c-navy"><h4>Call Desk</h4><p class="s" style="margin-top:8px">1800-778-4455 · 24×7 multilingual support.</p></div>
+          <div class="card c-pink"><h4>WhatsApp Bot</h4><p class="s" style="margin-top:8px">Send your tracking ID to +91 90000 11223 for instant status.</p></div>
+          <div class="card c-sky"><h4>Claim Policy</h4><p class="s" style="margin-top:8px">Damage claims settled in 5 working days with photo proof.</p></div>
+        </div>
+      </section>
+
+      <!-- ---------- SETTINGS ---------- -->
+      <section class="module" id="m-settings">
+        <div class="mod-head"><div><span class="chip">Account</span><h2>Settings</h2><p>Profile, alerts and security controls.</p></div></div>
+        <div class="grid g2">
+          <div class="panel reveal"><h3>Profile</h3><p class="sub">Visible to riders at doorstep.</p>
+            <div class="field"><label>Full name</label><input value="Meera Raghav"></div>
+            <div class="field"><label>Phone</label><input value="+91 98407 22110"></div>
+            <div class="field"><label>Email</label><input value="meera@swifttrail.io"></div>
+            <button class="pill-btn" data-toast="Profile updated successfully.">Save Profile</button>
+          </div>
+          <div class="panel reveal"><h3>Notifications</h3><p class="sub">Choose how we ping you.</p>
+            <div class="switchrow"><span>SMS on every scan</span><label class="sw"><input type="checkbox" checked><i></i></label></div>
+            <div class="switchrow"><span>Email delivery summary</span><label class="sw"><input type="checkbox" checked><i></i></label></div>
+            <div class="switchrow"><span>WhatsApp rider alerts</span><label class="sw"><input type="checkbox"><i></i></label></div>
+            <div class="switchrow"><span>Promotional offers</span><label class="sw"><input type="checkbox"><i></i></label></div>
+            <h3 style="margin-top:20px">Security</h3><p class="sub">Keep your parcels safe.</p>
+            <div class="switchrow"><span>Two-factor login</span><label class="sw"><input type="checkbox" checked><i></i></label></div>
+            <button class="pill-btn alt" data-toast="Security settings saved.">Update Security</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="js/customer-dashboard.js"></script>
+</body>
+</html>

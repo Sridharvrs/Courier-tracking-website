@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login — SwiftTrail Courier Tracking</title>
+    <meta
+      name="description"
+      content="Sign in to SwiftTrail as a customer, shipper, driver or admin."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body class="login-body">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="images/logo.webp" alt="Stackly" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="track.html">Track</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-amber active-btn" href="login.html">🔐 Login</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer">
+      <a class="d-link" href="index.html">🏠 Home</a>
+      <a class="d-link" href="track.html">📍 Track</a>
+      <a class="d-link" href="services.html">📦 Services</a>
+      <a class="d-link" href="pricing.html">💰 Pricing</a>
+      <a class="d-link" href="contact.html">✉️ Contact</a>
+      <a class="btn btn-amber drawer-login" href="login.html">🔐 Login</a>
+      <p class="d-note">Four roles. One console.</p>
+    </aside>
+
+    <!-- 1. LOGIN PANEL -->
+    <section class="l-main" id="panel">
+      <div class="orb o1"></div>
+      <div class="orb o2"></div>
+      <div class="orb o3"></div>
+
+      <div class="l-card">
+        <button
+          class="close-btn"
+          id="closeBtn"
+          title="Close and go back"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        <div class="l-visual">
+          <img
+            src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=800&q=80"
+            alt="Courier handing over parcel"
+          />
+          <div class="lv-copy">
+            <h3>4.2M parcels tracked today</h3>
+            <p>Sign in to see yours moving in real time.</p>
+          </div>
+          <span class="lv-chip c1">🚚 On route</span>
+          <span class="lv-chip c2">✅ Delivered</span>
+        </div>
+
+        <div class="l-form-side">
+          <span class="eyebrow pill-glow">Secure sign in</span>
+          <h1>Welcome back</h1>
+          <p class="sub">
+            Choose your role, then continue with your workspace credentials.
+          </p>
+
+          <!-- ROLE SELECTOR -->
+          <div class="roles" id="roles">
+            <button
+              class="role active"
+              data-role="Customer"
+              data-hint="Track your own parcels and share links."
+            >
+              <i>👤</i><b>Customer</b>
+            </button>
+            <button
+              class="role"
+              data-role="Shipper"
+              data-hint="Bulk bookings, invoices and API keys."
+            >
+              <i>🏬</i><b>Shipper</b>
+            </button>
+          </div>
+          <p class="role-hint" id="roleHint">
+            Track your own parcels and share links.
+          </p>
+
+          <form id="loginForm" novalidate>
+            <label
+              >Email or workspace ID
+              <input type="text" id="lMail" placeholder="you@company.com" />
+              <small class="err" id="e1"></small>
+            </label>
+            <label
+              >Password
+              <span class="pw">
+                <input type="password" id="lPass" placeholder="••••••••" />
+                <button
+                  type="button"
+                  class="eye"
+                  id="eye"
+                  aria-label="Show password"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </span>
+              <small class="err" id="e2"></small>
+            </label>
+            <div class="frow">
+              <label class="rem"
+                ><input type="checkbox" id="lRem" checked /> Keep me signed
+                in</label
+              >
+              <a href="#" class="forgot">Forgot password?</a>
+            </div>
+            <button class="btn btn-amber wide" type="submit" id="submitBtn">
+              Sign in as <span id="roleOut">Customer</span>
+            </button>
+            <p class="okmsg" id="okmsg"></p>
+          </form>
+
+          <div class="or"><span>or continue with</span></div>
+          <div class="socials">
+            <button class="socl s-g">G · Google</button>
+            <button class="socl s-a">🍎 Apple</button>
+            <button class="socl s-o">🔑 SSO</button>
+          </div>
+          <p class="signup">
+            New to SwiftTrail?
+            <a href="signup.html">Create a free workspace →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

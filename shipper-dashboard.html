@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shipper Dashboard — SwiftTrail Courier</title>
+<meta name="description" content="SwiftTrail shipper dashboard: manage consignments, fleet, warehouse stock, rate cards, COD settlements and team access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/shipper-dashboard.css">
+</head>
+<body class="ship">
+
+<div class="shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="side" id="side">
+    <a class="brand" href="index.html">
+      <img src="images/logo.webp" alt="Stackly">
+    </a>
+
+    <div class="who">
+      <img src="images/team4.webp" alt="Shipper avatar">
+      <div><b class="profileName">stackly Logistics</b><small>Shipper</small></div>
+    </div>
+
+    <div class="side-scroll">
+      <p class="side-label">Operations</p>
+      <button class="mlink active" data-mod="control"><span class="ic"><i class="fa-solid fa-tower-broadcast"></i></span> Control Room</button>
+      <button class="mlink" data-mod="consign"><span class="ic"><i class="fa-solid fa-boxes-stacked"></i></span> Consignments <span class="badge">9</span></button>
+      <button class="mlink" data-mod="fleet"><span class="ic"><i class="fa-solid fa-truck-moving"></i></span> Fleet &amp; Riders</button>
+      <button class="mlink" data-mod="warehouse"><span class="ic"><i class="fa-solid fa-pallet"></i></span> Warehouse</button>
+      <p class="side-label">Business</p>
+      <button class="mlink" data-mod="rates"><span class="ic"><i class="fa-solid fa-tags"></i></span> Rate Cards</button>
+      <button class="mlink" data-mod="cod"><span class="ic"><i class="fa-solid fa-indian-rupee-sign"></i></span> COD Settlement</button>
+      <button class="mlink" data-mod="reports"><span class="ic"><i class="fa-solid fa-chart-column"></i></span> Reports</button>
+      <button class="mlink" data-mod="team"><span class="ic"><i class="fa-solid fa-users-gear"></i></span> Team Access</button>
+    </div>
+
+    <div class="side-foot">
+      <button class="logout" id="logoutSide"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+    <header class="topbar">
+      <button class="sb-toggle" id="sbToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+      <div class="tb-title" id="tbTitle">Control Room <small>Nova Logistics · Hub Chennai</small></div>
+      <div class="tb-right">
+        <div class="tb-search"><i class="fa-solid fa-magnifying-glass" style="color:#5b648e"></i><input id="topSearch" placeholder="Search AWB / rider…"></div>
+        <button class="tb-btn" id="bellBtn" aria-label="Alerts"><i class="fa-regular fa-bell"></i><span class="dot"></span></button>
+        <button class="tb-logout" id="logoutTop"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </header>
+
+    <main class="page">
+
+      <!-- ---------- CONTROL ROOM ---------- -->
+      <section class="module on" id="m-control">
+        <div class="mod-head">
+          <div><span class="chip">Live Ops</span><h2>Control Room</h2><p>Network-wide pulse for every parcel your business has injected into SwiftTrail today.</p></div>
+          <button class="pill-btn spacer" data-go="consign"><i class="fa-solid fa-list-check"></i> Manifest Queue</button>
+        </div>
+
+        <div class="grid g4 reveal">
+          <div class="card c-navy"><p class="k">Orders Today</p><p class="v count" data-to="486">0</p><p class="s">+12% vs yesterday</p></div>
+          <div class="card c-teal"><p class="k">Picked Up</p><p class="v count" data-to="412">0</p><p class="s">84.7% pickup compliance</p></div>
+          <div class="card c-amber"><p class="k">Exceptions</p><p class="v count" data-to="17">0</p><p class="s">9 address issues · 8 NDR</p></div>
+          <div class="card c-lime"><p class="k">SLA Met</p><p class="v count" data-to="96">0</p><p class="s">Target 95% · beating SLA</p></div>
+        </div>
+
+        <div class="grid g21" style="margin-top:16px">
+          <div class="panel reveal"><h3>Hub Throughput</h3><p class="sub">Parcels processed per hour across your linked hubs.</p>
+            <div class="chart" id="hubChart"></div>
+          </div>
+          <div class="panel reveal"><h3>Lane Load</h3><p class="sub">Utilisation of your top four corridors.</p>
+            <div class="lane"><div class="rowline"><span>Chennai → Bengaluru</span><span>88%</span></div><div class="bar"><i data-w="88" style="background:linear-gradient(90deg,#7b5cff,#39a7ff)"></i></div></div>
+            <div class="lane"><div class="rowline"><span>Chennai → Hyderabad</span><span>72%</span></div><div class="bar"><i data-w="72" style="background:linear-gradient(90deg,#00d4b1,#0093c9)"></i></div></div>
+            <div class="lane"><div class="rowline"><span>Chennai → Kochi</span><span>54%</span></div><div class="bar"><i data-w="54" style="background:linear-gradient(90deg,#ffb020,#ff7a2f)"></i></div></div>
+            <div class="lane"><div class="rowline"><span>Chennai → Mumbai (Air)</span><span>93%</span></div><div class="bar"><i data-w="93" style="background:linear-gradient(90deg,#ff5c8a,#e0245e)"></i></div></div>
+            <div class="live" style="margin-top:16px;min-height:120px"><b>Night trunk departing 21:40</b><p style="opacity:.85;font-size:.84rem;margin-top:6px">4 containers sealed · 2 loading</p><div class="road"></div><div class="van">🚛</div></div>
+          </div>
+        </div>
+
+        <div class="grid g3 reveal" style="margin-top:16px">
+          <div class="card c-violet"><h4>Live Riders</h4><p class="v">64</p><p class="s">On-road right now across 3 cities.</p></div>
+          <div class="card c-pink"><h4>NDR Pending</h4><p class="v">8</p><p class="s">Action needed before 6 PM cut-off.</p></div>
+          <div class="card c-sky"><h4>COD in Transit</h4><p class="v">₹2.4L</p><p class="s">Settlement scheduled Monday.</p></div>
+        </div>
+      </section>
+
+      <!-- ---------- CONSIGNMENTS ---------- -->
+      <section class="module" id="m-consign">
+        <div class="mod-head">
+          <div><span class="chip">Manifest</span><h2>Consignments</h2><p>Bulk manage AWBs — assign riders, flag priority, print labels.</p></div>
+          <div class="spacer bulkbar">
+            <button class="pill-btn alt" id="bulkAssign"><i class="fa-solid fa-user-check"></i> Assign Selected</button>
+            <button class="pill-btn" id="bulkLabel"><i class="fa-solid fa-print"></i> Print Labels</button>
+          </div>
+        </div>
+        <div class="panel reveal" style="overflow-x:auto">
+          <table class="tbl"><thead><tr><th><input type="checkbox" id="chkAll"></th><th>AWB</th><th>Receiver</th><th>Destination</th><th>Mode</th><th>Value</th><th>Status</th></tr></thead>
+          <tbody id="cnRows"></tbody></table>
+        </div>
+        <div class="grid g4 reveal" style="margin-top:16px">
+          <div class="card c-slate"><p class="k">Manifested</p><p class="v">312</p><p class="s">Sealed for tonight</p></div>
+          <div class="card c-teal"><p class="k">Awaiting Pickup</p><p class="v">74</p><p class="s">Rider ETA 45 min</p></div>
+          <div class="card c-amber"><p class="k">RTO Flagged</p><p class="v">11</p><p class="s">Auto-reattempt on</p></div>
+          <div class="card c-pink"><p class="k">Priority</p><p class="v">28</p><p class="s">Premium SLA parcels</p></div>
+        </div>
+      </section>
+
+      <!-- ---------- FLEET ---------- -->
+      <section class="module" id="m-fleet">
+        <div class="mod-head"><div><span class="chip">People &amp; Vehicles</span><h2>Fleet &amp; Riders</h2><p>Capacity, load and performance for every rider mapped to your account.</p></div></div>
+        <div class="grid g3 reveal" id="riderGrid"></div>
+        <div class="grid g2 reveal" style="margin-top:16px">
+          <div class="panel"><h3>Vehicle Health</h3><p class="sub">Maintenance alerts from telematics.</p>
+            <ul class="tl">
+              <li class="done"><b>TN-09 AC 4412 · Serviced</b><span>Oil + brake check completed 2 days ago</span></li>
+              <li><b>TN-22 BX 7781 · Tyre pressure low</b><span>Flagged this morning · schedule today</span></li>
+              <li><b>KA-51 MN 3390 · Insurance renewal</b><span>Expires in 12 days</span></li>
+              <li><b>EV-Fleet Pod 4 · Battery 38%</b><span>Auto-routed to charging bay at 8 PM</span></li>
+            </ul>
+          </div>
+          <div class="panel"><h3>Assign a Rider</h3><p class="sub">Quick manual dispatch.</p>
+            <div class="field"><label>AWB number</label><input id="asAwb" placeholder="SW-880231"></div>
+            <div class="field"><label>Rider</label><select id="asRider"><option>Arun K. · Chennai North</option><option>Divya P. · Chennai South</option><option>Ravi M. · Hosur Lane</option><option>Naveen S. · Bengaluru</option></select></div>
+            <div class="field"><label>Priority</label><select><option>Standard</option><option>High</option><option>Critical</option></select></div>
+            <button class="pill-btn" id="asBtn"><i class="fa-solid fa-paper-plane"></i> Dispatch</button>
+            <p class="note" id="asOut" style="margin-top:12px"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- WAREHOUSE ---------- -->
+      <section class="module" id="m-warehouse">
+        <div class="mod-head"><div><span class="chip">Inventory</span><h2>Warehouse</h2><p>Bin-level stock across your fulfilment centres with low-stock alerts.</p></div>
+          <button class="pill-btn spacer" data-toast="Stock sync with ERP triggered."><i class="fa-solid fa-rotate"></i> Sync Stock</button></div>
+        <div class="grid g4 reveal">
+          <div class="card c-violet"><p class="k">SKUs</p><p class="v">1,284</p><p class="s">Across 3 centres</p></div>
+          <div class="card c-teal"><p class="k">Bins Occupied</p><p class="v">78%</p><p class="s">Chennai DC nearing full</p></div>
+          <div class="card c-amber"><p class="k">Low Stock</p><p class="v">23</p><p class="s">Reorder suggested</p></div>
+          <div class="card c-navy"><p class="k">Dispatch Ready</p><p class="v">341</p><p class="s">Packed and labelled</p></div>
+        </div>
+        <div class="panel reveal" style="margin-top:16px;overflow-x:auto">
+          <h3>Stock Register</h3><p class="sub">Live counts updated on every scan.</p>
+          <table class="tbl"><thead><tr><th>SKU</th><th>Item</th><th>Centre</th><th>Bin</th><th>Qty</th><th>Health</th></tr></thead>
+          <tbody id="whRows"></tbody></table>
+        </div>
+        <div class="grid g3 reveal" style="margin-top:16px">
+          <div class="card c-sky"><h4>Chennai DC</h4><p class="s" style="margin-top:8px">42,000 sq ft · 18 dock doors · 24×7 ops.</p></div>
+          <div class="card c-lime"><h4>Hosur Spoke</h4><p class="s" style="margin-top:8px">Cross-dock only · 4h dwell time average.</p></div>
+          <div class="card c-pink"><h4>Bengaluru DC</h4><p class="s" style="margin-top:8px">Cold-chain enabled · 6 reefer bays.</p></div>
+        </div>
+      </section>
+
+      <!-- ---------- RATE CARDS ---------- -->
+      <section class="module" id="m-rates">
+        <div class="mod-head"><div><span class="chip">Commercials</span><h2>Rate Cards</h2><p>Negotiated slabs plus a live margin simulator.</p></div></div>
+        <div class="grid g21">
+          <div class="panel reveal" style="overflow-x:auto"><h3>Contracted Slabs</h3><p class="sub">Effective 01 Aug 2026 · valid 12 months.</p>
+            <table class="tbl"><thead><tr><th>Zone</th><th>0-1 kg</th><th>1-5 kg</th><th>5-20 kg</th><th>Surcharge</th></tr></thead>
+            <tbody>
+              <tr><td>Intra-city</td><td>₹38</td><td>₹64</td><td>₹142</td><td>—</td></tr>
+              <tr><td>Zone A (state)</td><td>₹52</td><td>₹88</td><td>₹196</td><td>₹8 fuel</td></tr>
+              <tr><td>Zone B (metro)</td><td>₹68</td><td>₹112</td><td>₹248</td><td>₹12 fuel</td></tr>
+              <tr><td>Zone C (rest)</td><td>₹86</td><td>₹148</td><td>₹312</td><td>₹18 fuel</td></tr>
+              <tr><td>Air Priority</td><td>₹140</td><td>₹238</td><td>₹520</td><td>₹26 security</td></tr>
+            </tbody></table>
+          </div>
+          <div class="panel reveal"><h3>Margin Simulator</h3><p class="sub">See profit per parcel before you commit.</p>
+            <div class="field"><label>Selling price to buyer (₹)</label><input type="number" id="rtSell" value="150"></div>
+            <div class="field"><label>Zone</label><select id="rtZone"><option value="64">Intra-city</option><option value="88">Zone A</option><option value="112">Zone B</option><option value="148">Zone C</option></select></div>
+            <div class="field"><label>Monthly volume</label><input type="number" id="rtVol" value="4000"></div>
+            <div class="card c-lime" style="margin-top:6px"><p class="k">Monthly Margin</p><p class="v" id="rtOut">₹0</p><p class="s" id="rtPer">—</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- COD ---------- -->
+      <section class="module" id="m-cod">
+        <div class="mod-head"><div><span class="chip">Cash Flow</span><h2>COD Settlement</h2><p>Collected cash, remittance cycles and pending reconciliation.</p></div>
+          <button class="pill-btn spacer" id="reqPayout"><i class="fa-solid fa-money-bill-transfer"></i> Request Payout</button></div>
+        <div class="grid g3 reveal">
+          <div class="card c-teal"><p class="k">Collected (7d)</p><p class="v">₹6.82L</p><p class="s">1,904 COD parcels</p></div>
+          <div class="card c-amber"><p class="k">Pending Remittance</p><p class="v" id="codPend">₹2,41,500</p><p class="s">Next cycle Monday 10 AM</p></div>
+          <div class="card c-pink"><p class="k">Disputed</p><p class="v">₹18,240</p><p class="s">6 parcels under review</p></div>
+        </div>
+        <div class="panel reveal" style="margin-top:16px;overflow-x:auto">
+          <h3>Remittance History</h3><p class="sub">Bank credits against your registered account ····4471.</p>
+          <table class="tbl"><thead><tr><th>Cycle</th><th>Parcels</th><th>Collected</th><th>Fees</th><th>Net Paid</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>W32 · 04 Aug</td><td>612</td><td>₹2,14,300</td><td>₹6,429</td><td>₹2,07,871</td><td><span class="tag t-green">Settled</span></td></tr>
+            <tr><td>W31 · 28 Jul</td><td>588</td><td>₹1,98,120</td><td>₹5,944</td><td>₹1,92,176</td><td><span class="tag t-green">Settled</span></td></tr>
+            <tr><td>W30 · 21 Jul</td><td>640</td><td>₹2,26,900</td><td>₹6,807</td><td>₹2,20,093</td><td><span class="tag t-green">Settled</span></td></tr>
+            <tr><td>W33 · 11 Aug</td><td>704</td><td>₹2,41,500</td><td>₹7,245</td><td>₹2,34,255</td><td><span class="tag t-amber">Processing</span></td></tr>
+          </tbody></table>
+        </div>
+      </section>
+
+      <!-- ---------- REPORTS ---------- -->
+      <section class="module" id="m-reports">
+        <div class="mod-head"><div><span class="chip">Insights</span><h2>Reports</h2><p>Performance analytics you can export to CSV for finance.</p></div>
+          <button class="pill-btn spacer" data-toast="Report export queued — you will get an email."><i class="fa-solid fa-file-arrow-down"></i> Export CSV</button></div>
+        <div class="grid g2 reveal">
+          <div class="panel"><h3>Delivery Success by City</h3><p class="sub">Last 30 days.</p>
+            <div class="lane"><div class="rowline"><span>Chennai</span><span>97.4%</span></div><div class="bar"><i data-w="97" style="background:linear-gradient(90deg,#00d4b1,#39a7ff)"></i></div></div>
+            <div class="lane"><div class="rowline"><span>Bengaluru</span><span>94.1%</span></div><div class="bar"><i data-w="94" style="background:linear-gradient(90deg,#7b5cff,#4b2fd6)"></i></div></div>
+            <div class="lane"><div class="rowline"><span>Hyderabad</span><span>91.8%</span></div><div class="bar"><i data-w="92" style="background:linear-gradient(90deg,#ffb020,#ff7a2f)"></i></div></div>
+            <div class="lane"><div class="rowline"><span>Kochi</span><span>89.3%</span></div><div class="bar"><i data-w="89" style="background:linear-gradient(90deg,#ff5c8a,#e0245e)"></i></div></div>
+            <div class="lane"><div class="rowline"><span>Mumbai</span><span>93.6%</span></div><div class="bar"><i data-w="94" style="background:linear-gradient(90deg,#9ede3a,#3fae4a)"></i></div></div>
+          </div>
+          <div class="panel"><h3>Revenue Trend</h3><p class="sub">Weekly billed value (₹ thousands).</p><div class="chart" id="revChart"></div></div>
+        </div>
+        <div class="grid g4 reveal" style="margin-top:16px">
+          <div class="card c-navy"><p class="k">Avg TAT</p><p class="v">31 h</p><p class="s">Down 4h MoM</p></div>
+          <div class="card c-violet"><p class="k">First Attempt</p><p class="v">92%</p><p class="s">Delivery success</p></div>
+          <div class="card c-amber"><p class="k">RTO Rate</p><p class="v">3.1%</p><p class="s">Industry avg 6%</p></div>
+          <div class="card c-teal"><p class="k">NPS</p><p class="v">71</p><p class="s">From 2,140 responses</p></div>
+        </div>
+      </section>
+
+      <!-- ---------- TEAM ---------- -->
+      <section class="module" id="m-team">
+        <div class="mod-head"><div><span class="chip">Access</span><h2>Team Access</h2><p>Invite staff and control what each role can touch.</p></div>
+          <button class="pill-btn spacer" id="inviteBtn"><i class="fa-solid fa-user-plus"></i> Invite Member</button></div>
+        <div class="panel reveal" style="overflow-x:auto">
+          <table class="tbl"><thead><tr><th>Member</th><th>Role</th><th>Hub</th><th>Last Active</th><th>Access</th></tr></thead>
+          <tbody id="teamRows"></tbody></table>
+        </div>
+        <div class="grid g2 reveal" style="margin-top:16px">
+          <div class="panel"><h3>Permission Matrix</h3><p class="sub">Toggle module-level rights for the Ops Manager role.</p>
+            <div class="switchrow"><span>Create consignments</span><label class="sw"><input type="checkbox" checked><i></i></label></div>
+            <div class="switchrow"><span>Edit rate cards</span><label class="sw"><input type="checkbox"><i></i></label></div>
+            <div class="switchrow"><span>Approve COD payouts</span><label class="sw"><input type="checkbox"><i></i></label></div>
+            <div class="switchrow"><span>Export reports</span><label class="sw"><input type="checkbox" checked><i></i></label></div>
+            <div class="switchrow"><span>Manage riders</span><label class="sw"><input type="checkbox" checked><i></i></label></div>
+            <button class="pill-btn alt" style="margin-top:14px" data-toast="Permission matrix saved.">Save Permissions</button>
+          </div>
+          <div class="panel"><h3>Audit Log</h3><p class="sub">Every sensitive action is recorded.</p>
+            <ul class="tl">
+              <li class="done"><b>Rate card v9 published</b><span>By Nithya R. · 09:12 AM</span></li>
+              <li><b>Payout request ₹2.41L</b><span>By Nova Admin · 10:04 AM</span></li>
+              <li><b>Rider Naveen S. added</b><span>By Karthik V. · yesterday</span></li>
+              <li><b>API key rotated</b><span>By Nova Admin · 2 days ago</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="js/shipper-dashboard.js"></script>
+</body>
+</html>

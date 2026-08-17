@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact & Support — SwiftTrail</title>
+    <meta
+      name="description"
+      content="Talk to the SwiftTrail courier tracking team: sales, support, claims and hub addresses."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="images/logo.webp" alt="Stackly" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="track.html">Track</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-amber" href="login.html">🔐 Login</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer">
+      <a class="d-link" href="index.html">🏠 Home</a>
+      <a class="d-link" href="track.html">📍 Track</a>
+      <a class="d-link" href="services.html">📦 Services</a>
+      <a class="d-link" href="pricing.html">💰 Pricing</a>
+      <a class="d-link active" href="contact.html">✉️ Contact</a>
+      <a class="btn btn-amber drawer-login" href="login.html">🔐 Login</a>
+      <p class="d-note">Support answers in under 4 minutes</p>
+    </aside>
+
+    <!-- 1. HERO -->
+    <header class="c-hero">
+      <div class="dots"></div>
+      <div class="wrap c-hero-in">
+        <div>
+          <span class="eyebrow pill-ice">We answer fast</span>
+          <h1>Something stuck?<br />Let's un-stick it.</h1>
+          <p>
+            Average first response: <b>3 min 41 s</b> on chat, under two hours
+            on email. Real humans in Chennai, Dubai and Lisbon.
+          </p>
+          <div class="quick-links">
+            <a href="#form" class="ql q1">✍️ Write to us</a>
+            <a href="track.html" class="ql q2">📍 Track a parcel</a>
+            <a href="login.html" class="ql q3">🔐 Client login</a>
+          </div>
+        </div>
+        <div class="c-hero-img">
+          <img
+            src="images/logistics2.webp"
+            alt="Support team"
+          /><span class="ring"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. CHANNEL CARDS -->
+    <section class="c-channels">
+      <div class="wrap ch-grid">
+        <div class="ch ch1 reveal left">
+          <div class="ci">💬</div>
+          <b>Live chat</b>
+          <p>Fastest route for a stuck shipment or a failed scan.</p>
+          <span>24 × 7</span>
+        </div>
+        <div class="ch ch2 reveal">
+          <div class="ci">📞</div>
+          <b>Phone desk</b>
+          <p>+91 44 4000 8899 · press 2 for the tracking team.</p>
+          <span>8 AM – 11 PM IST</span>
+        </div>
+        <div class="ch ch3 reveal">
+          <div class="ci">📧</div>
+          <b>Email</b>
+          <p>hello@swifttrail.io for sales, care@ for support.</p>
+          <span>Reply under 2 h</span>
+        </div>
+        <div class="ch ch4 reveal right">
+          <div class="ci">🧾</div>
+          <b>Claims desk</b>
+          <p>Damage or loss claims settled in 7 working days.</p>
+          <span>claims@swifttrail.io</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FORM -->
+    <section class="c-form-sec" id="form">
+      <div class="wrap form-in">
+        <div class="form-side">
+          <span class="eyebrow pill-lemon">Send a message</span>
+          <h2>Tell us what happened</h2>
+          <p>
+            Include the tracking ID if you have one — it lets us pull the full
+            scan history before we even reply.
+          </p>
+          <ul class="assure">
+            <li>No bots on the first reply</li>
+            <li>Ticket ID issued instantly</li>
+            <li>Escalation to hub manager in 6 h</li>
+          </ul>
+          <img
+            src="images/track2.webp"
+            alt="Warehouse worker with parcel"
+          />
+        </div>
+        <form class="c-form" id="cForm" novalidate>
+          <div class="row">
+            <label
+              >Full name<input
+                type="text"
+                id="fName"
+                placeholder="Ravi Shankar" /><small class="err"></small
+            ></label>
+            <label
+              >Email<input
+                type="email"
+                id="fMail"
+                placeholder="you@company.com" /><small class="err"></small
+            ></label>
+          </div>
+          <div class="row">
+            <label
+              >Tracking ID <i>(optional)</i
+              ><input type="text" id="fTrack" placeholder="ST-99120"
+            /></label>
+            <label
+              >Topic<select id="fTopic">
+                <option>Delayed shipment</option>
+                <option>Damaged parcel</option>
+                <option>Billing question</option>
+                <option>API / integration</option>
+                <option>Partnership</option>
+              </select></label
+            >
+          </div>
+          <label
+            >Message<textarea
+              id="fMsg"
+              rows="5"
+              placeholder="Describe the issue in a couple of lines…"
+            ></textarea
+            ><small class="err"></small
+          ></label>
+          <button class="btn btn-amber" type="submit">Send message ✈️</button>
+          <p class="ok" id="okMsg"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 4. HUB LOCATIONS -->
+    <section class="c-hubs">
+      <div class="wrap">
+        <div class="head-x light">
+          <span class="eyebrow pill-ice">Walk in</span>
+          <h2>Regional hubs</h2>
+        </div>
+        <div class="hub-grid">
+          <div class="hub h1 reveal zoom">
+            <b>Chennai · HQ</b>
+            <p>18 Harbour Line, Anna Salai, 600002</p>
+            <span>Mon–Sat · 9:00–20:00</span>
+          </div>
+          <div class="hub h2 reveal zoom">
+            <b>Bengaluru</b>
+            <p>44 Indiranagar 100ft Road, 560038</p>
+            <span>Mon–Sat · 9:00–20:00</span>
+          </div>
+          <div class="hub h3 reveal zoom">
+            <b>Dubai</b>
+            <p>Warehouse C4, Jebel Ali Free Zone</p>
+            <span>Sun–Thu · 8:00–18:00</span>
+          </div>
+          <div class="hub h4 reveal zoom">
+            <b>Lisbon</b>
+            <p>Rua da Prata 210, 1100-052</p>
+            <span>Mon–Fri · 9:00–18:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SUPPORT FAQ -->
+    <section class="c-faq">
+      <div class="wrap">
+        <div class="head-x">
+          <span class="eyebrow pill-lemon">Before you write</span>
+          <h2>Answers that solve 70% of tickets</h2>
+        </div>
+        <div class="faq-grid">
+          <details class="fq" open>
+            <summary>
+              My parcel shows delivered but I did not receive it
+            </summary>
+            <p>
+              Open the shipment and check the proof photo and GPS stamp. If the
+              location is wrong, raise a claim from the same screen — the hub
+              manager gets it in six hours.
+            </p>
+          </details>
+          <details class="fq">
+            <summary>Can I change the delivery address mid-route?</summary>
+            <p>
+              Yes, until the "out for delivery" scan. After that the rider must
+              attempt the original address once before a redirect is allowed.
+            </p>
+          </details>
+          <details class="fq">
+            <summary>How do I add a teammate to my workspace?</summary>
+            <p>
+              Settings → Team → Invite. Choose Admin, Ops or Read-only. Seats
+              are free on every plan.
+            </p>
+          </details>
+          <details class="fq">
+            <summary>Where are the API docs?</summary>
+            <p>
+              docs.swifttrail.io — REST reference, webhook payloads and four
+              SDKs, with a sandbox key that never charges you.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. NEWSLETTER -->
+    <section class="c-news">
+      <div class="wrap news-in">
+        <div>
+          <h2>Logistics notes, twice a month</h2>
+          <p>
+            Route economics, carrier benchmarks and rate-change alerts. No
+            fluff, unsubscribe in one click.
+          </p>
+        </div>
+        <form class="news-form" id="newsForm">
+          <input type="email" id="newsMail" placeholder="you@company.com" />
+          <button class="btn btn-teal" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <p class="news-msg" id="newsMsg"></p>
+    </section>
+
+    <div class="van-strip">
+      <div class="road"></div>
+      <div class="van">✉️</div>
+    </div>
+
+    <footer class="foot">
+      <div class="wrap foot-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 14px">
+            <a class="brand" href="index.html">
+              <img src="images/logo.webp" alt="Stackly">
+            </a>
+          </div>
+          <p>
+            The tracking layer for modern logistics. One API, every carrier,
+            zero guesswork.
+          </p>
+          <div class="soc">
+
+             <a href="error.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-instagram"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-google-play"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-app-store-ios"></i></a>
+
+         </div>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="track.html">Live tracking</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Network</a></li>
+            <li><a href="pricing.html">Enterprise</a></li>
+            <li><a href="index.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Head office</h4>
+          <p>
+            18 Harbour Line, Anna Salai<br />Chennai 600002, India<br />+91 44
+            4000 8899
+            <!-- NEWSLETTER -->
+              <div class="footer-subscribe">
+
+                  <form class="subscribe-form">
+
+                     <div class="subscribe-input">
+                          <i class="fa-regular fa-envelope"></i>
+
+                         <input
+                              type="email"
+                              placeholder="Enter your email address"
+                              required
+                          >
+                     </div>
+
+                     <button type="submit" class="subscribe-btn">
+                         Subscribe
+                         <i class="fa-solid fa-arrow-right"></i>
+                     </button>
+
+                  </form>
+
+                 <span class="subscribe-message"></span>
+
+              </div>
+          </p>
+        </div>
+      </div>
+      <div class="wrap foot-bar">
+        <span>© <span class="yr"></span> SwiftTrail Logistics Pvt Ltd.</span
+        ><span>Privacy · Terms · Status</span>
+      </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/contact.js"></script>
+  </body>
+</html>

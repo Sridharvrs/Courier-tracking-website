@@ -1,0 +1,1284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live Tracking — SwiftTrail</title>
+    <meta
+      name="description"
+      content="Track any SwiftTrail shipment live: status timeline, map corridor, driver details and proof of delivery."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/track.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="images/logo.webp" alt="Stackly" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="track.html">Track</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-amber" href="login.html">🔐 Login</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer">
+      <a class="d-link" href="index.html">🏠 Home</a>
+      <a class="d-link active" href="track.html">📍 Track</a>
+      <a class="d-link" href="services.html">📦 Services</a>
+      <a class="d-link" href="pricing.html">💰 Pricing</a>
+      <a class="d-link" href="contact.html">✉️ Contact</a>
+      <a class="btn btn-amber drawer-login" href="login.html">🔐 Login</a>
+      <p class="d-note">Live updates every 8 seconds</p>
+    </aside>
+
+    <!-- 1. SEARCH BANNER -->
+    <header class="t-hero">
+      <div class="grid-lines"></div>
+      <div class="wrap">
+        <span class="eyebrow pill-lime">Live tracking console</span>
+        <h1>Where is <span id="typed"></span><b class="caret">|</b></h1>
+        <p>
+          Enter a tracking number to open the full journey: scans, driver, map
+          corridor and proof of delivery.
+        </p>
+        <form class="t-form" id="trackForm">
+          <span class="tf-ico">🔎</span>
+          <input
+            id="trackInput"
+            type="text"
+            placeholder="ST-99120 / ST-44781 / ST-10233"
+            autocomplete="off"
+          />
+          <button class="btn btn-amber" onclick="window.location.href = 'error.html'" type="submit">Track</button>
+        </form>
+        <div class="chips">
+          <button class="chip" data-id="ST-99120">
+            ST-99120 · Out for delivery
+          </button>
+          <button class="chip" data-id="ST-44781">ST-44781 · In transit</button>
+          <button class="chip" data-id="ST-10233">ST-10233 · Delivered</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. RESULT PANEL -->
+    <section class="t-result">
+      <div class="wrap">
+        <div class="result-card" id="resultCard">
+          <div class="rc-empty" id="rcEmpty">
+            <div class="box-anim">📦</div>
+            <h3>No shipment loaded yet</h3>
+            <p>
+              Pick one of the demo IDs above and the console will populate
+              instantly.
+            </p>
+          </div>
+          <div class="rc-body" id="rcBody" hidden>
+            <div class="rc-top">
+              <div>
+                <small>Tracking ID</small>
+                <h2 id="rId">—</h2>
+              </div>
+              <div class="rc-status" id="rStatus">—</div>
+            </div>
+            <div class="rc-meta">
+              <div><small>From</small><b id="rFrom">—</b></div>
+              <div><small>To</small><b id="rTo">—</b></div>
+              <div><small>Service</small><b id="rSvc">—</b></div>
+              <div><small>Est. delivery</small><b id="rEta">—</b></div>
+            </div>
+            <div class="progress">
+              <div class="pbar" id="pbar"></div>
+              <span class="ptruck" id="ptruck">🚚</span>
+            </div>
+            <ul class="steps" id="steps"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. LIVE ROUTE INTELLIGENCE -->
+    <section class="route-intel">
+      <div class="route-intel-bg"></div>
+      <div class="route-intel-glow route-glow-1"></div>
+      <div class="route-intel-glow route-glow-2"></div>
+
+      <div class="wrap">
+        <!-- SECTION HEADER -->
+        <div class="route-intel-head reveal">
+          <div>
+            <span class="eyebrow route-pill">🛰️ Live Route Intelligence</span>
+
+            <h2>
+              See the route.
+              <span>Understand the journey.</span>
+            </h2>
+          </div>
+
+          <div class="route-live">
+            <span></span>
+            LIVE GPS
+            <b>Updated 8 sec ago</b>
+          </div>
+        </div>
+
+        <!-- MAIN CONTROL PANEL -->
+        <div class="route-command reveal zoom">
+          <!-- MAP -->
+          <div class="intel-map">
+            <div class="intel-map-grid"></div>
+
+            <!-- MAP DECORATION -->
+            <div class="map-land land-a"></div>
+            <div class="map-land land-b"></div>
+            <div class="map-land land-c"></div>
+
+            <!-- ROUTES -->
+            <svg
+              class="intel-route-svg"
+              viewBox="0 0 800 500"
+              preserveAspectRatio="none"
+            >
+              <path
+                class="intel-route-bg"
+                d="M90 400 C170 365 190 260 285 285 C370 308 405 150 500 175 C590 198 640 115 720 90"
+              />
+
+              <path
+                class="intel-route-active"
+                d="M90 400 C170 365 190 260 285 285 C370 308 405 150 500 175 C590 198 640 115 720 90"
+              />
+
+              <path
+                class="intel-route-alt"
+                d="M285 285 C340 360 420 390 500 350 C570 315 620 260 720 90"
+              />
+            </svg>
+
+            <!-- START -->
+            <div class="intel-location intel-start">
+              <div class="intel-node">✓</div>
+
+              <div class="intel-label">
+                <strong>Pickup</strong>
+                <small>Bengaluru</small>
+              </div>
+            </div>
+
+            <!-- CURRENT VEHICLE -->
+            <div class="intel-vehicle">
+              <div class="vehicle-pulse"></div>
+
+              <div class="vehicle-icon">🚚</div>
+
+              <div class="vehicle-card">
+                <strong>ST-99120</strong>
+
+                <span> Suresh P · 48 km/h </span>
+              </div>
+            </div>
+
+            <!-- HUB -->
+            <div class="intel-location intel-hub">
+              <div class="intel-node hub-node">H</div>
+
+              <div class="intel-label">
+                <strong>Sorting Hub</strong>
+                <small>Hosur</small>
+              </div>
+            </div>
+
+            <!-- DESTINATION -->
+            <div class="intel-location intel-end">
+              <div class="intel-node end-node">⌂</div>
+
+              <div class="intel-label">
+                <strong>Destination</strong>
+                <small>Chennai</small>
+              </div>
+            </div>
+
+            <!-- TRAFFIC BADGE -->
+            <div class="traffic-badge">
+              <span class="traffic-icon">🚦</span>
+
+              <div>
+                <small>TRAFFIC</small>
+                <strong>Moderate</strong>
+              </div>
+
+              <span class="traffic-dot"></span>
+            </div>
+
+            <!-- MAP ZOOM -->
+            <div class="map-controls">
+              <button type="button">+</button>
+              <button type="button">−</button>
+            </div>
+
+            <!-- MAP LEGEND -->
+            <div class="intel-legend">
+              <span>
+                <i class="legend-current"></i>
+                Current
+              </span>
+
+              <span>
+                <i class="legend-route"></i>
+                Planned route
+              </span>
+            </div>
+          </div>
+
+          <!-- RIGHT INTELLIGENCE PANEL -->
+          <aside class="intel-panel">
+            <div class="intel-panel-top">
+              <div>
+                <small>SHIPMENT</small>
+                <h3 id="intelId">ST-99120</h3>
+              </div>
+
+              <span class="intel-status"> ON ROUTE </span>
+            </div>
+
+            <!-- ETA -->
+            <div class="intel-eta">
+              <small>ESTIMATED ARRIVAL</small>
+
+              <strong id="intelEta"> 4:20 PM </strong>
+
+              <span> Today · On schedule </span>
+            </div>
+
+            <!-- ROUTE PROGRESS -->
+            <div class="intel-progress">
+              <div class="intel-progress-head">
+                <span>ROUTE PROGRESS</span>
+                <strong id="intelPercent">82%</strong>
+              </div>
+
+              <div class="intel-progress-bar">
+                <span id="intelProgress"></span>
+              </div>
+            </div>
+
+            <!-- METRICS -->
+            <div class="intel-metrics">
+              <div class="intel-metric">
+                <span class="metric-icon">📍</span>
+
+                <div>
+                  <small>REMAINING</small>
+                  <strong id="intelDistance">42.8 km</strong>
+                </div>
+              </div>
+
+              <div class="intel-metric">
+                <span class="metric-icon">⏱️</span>
+
+                <div>
+                  <small>ETA IN</small>
+                  <strong>42 min</strong>
+                </div>
+              </div>
+
+              <div class="intel-metric">
+                <span class="metric-icon">🚚</span>
+
+                <div>
+                  <small>SPEED</small>
+                  <strong>48 km/h</strong>
+                </div>
+              </div>
+
+              <div class="intel-metric">
+                <span class="metric-icon">🛰️</span>
+
+                <div>
+                  <small>GPS AGE</small>
+                  <strong>8 sec</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- NEXT STOP -->
+            <div class="next-stop">
+              <div class="next-stop-icon">→</div>
+
+              <div>
+                <small>NEXT CHECKPOINT</small>
+                <strong>Anna Nagar Hub</strong>
+                <span>Approximately 18 min away</span>
+              </div>
+            </div>
+
+            <!-- CONFIDENCE -->
+            <div class="route-confidence">
+              <div class="confidence-head">
+                <span>DELIVERY CONFIDENCE</span>
+                <strong>96%</strong>
+              </div>
+
+              <div class="confidence-bars">
+                <span class="confidence-good"></span>
+                <span class="confidence-good"></span>
+                <span class="confidence-good"></span>
+                <span class="confidence-good"></span>
+                <span class="confidence-good"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <small>
+                Current traffic conditions are unlikely to affect ETA.
+              </small>
+            </div>
+
+            <!-- ACTION -->
+            <button class="intel-share" type="button">
+              <span>↗</span>
+
+              Share live route
+            </button>
+          </aside>
+        </div>
+
+        <!-- BOTTOM DATA STRIP -->
+        <div class="route-data-strip reveal">
+          <div class="route-data">
+            <span>●</span>
+
+            <div>
+              <small>LAST GPS PING</small>
+              <strong>Anna Nagar · 09:58:42</strong>
+            </div>
+          </div>
+
+          <div class="route-data">
+            <span>↗</span>
+
+            <div>
+              <small>ROUTE EFFICIENCY</small>
+              <strong>94.8%</strong>
+            </div>
+          </div>
+
+          <div class="route-data">
+            <span>⚡</span>
+
+            <div>
+              <small>ETA CONFIDENCE</small>
+              <strong>Very High</strong>
+            </div>
+          </div>
+
+          <div class="route-data route-data-live">
+            <span></span>
+
+            <div>
+              <small>NETWORK STATUS</small>
+              <strong>All systems operational</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PACKAGE CONDITION & SECURITY -->
+    <section class="package-security">
+      <div class="security-grid"></div>
+
+      <div class="security-glow security-glow-a"></div>
+      <div class="security-glow security-glow-b"></div>
+
+      <div class="wrap">
+        <!-- HEADER -->
+        <div class="security-head reveal">
+          <div>
+            <span class="eyebrow security-pill"
+              >🔐 Package Condition & Security</span
+            >
+
+            <h2>
+              Protected at
+              <span>every mile.</span>
+            </h2>
+          </div>
+
+          <p>
+            Your shipment is monitored from pickup to delivery. Every scan,
+            handoff and security checkpoint is recorded to keep your package
+            safe and accountable.
+          </p>
+        </div>
+
+        <!-- MAIN SECURITY PANEL -->
+        <div class="security-panel reveal zoom">
+          <!-- LEFT PACKAGE VISUAL -->
+          <div class="package-visual">
+            <div class="package-orbit orbit-one"></div>
+            <div class="package-orbit orbit-two"></div>
+
+            <div class="package-box">
+              <div class="box-tape"></div>
+
+              <div class="box-label">
+                <span>SWIFT</span>
+                <strong>ST-99120</strong>
+              </div>
+
+              <div class="box-side">FRAGILE</div>
+            </div>
+
+            <div class="package-scan">
+              <span></span>
+              SECURITY SCAN
+            </div>
+
+            <div class="security-lock">🔒</div>
+
+            <div class="scan-line"></div>
+          </div>
+
+          <!-- RIGHT SECURITY INFO -->
+          <div class="security-info">
+            <div class="security-status">
+              <span class="status-dot"></span>
+
+              <div>
+                <small>PACKAGE STATUS</small>
+                <strong>Secure & Protected</strong>
+              </div>
+
+              <span class="verified"> ✓ Verified </span>
+            </div>
+
+            <!-- CONDITION -->
+            <div class="condition-card">
+              <div class="condition-top">
+                <div>
+                  <small>PACKAGE CONDITION</small>
+                  <h3>Excellent</h3>
+                </div>
+
+                <div class="condition-score">98%</div>
+              </div>
+
+              <div class="condition-bar">
+                <span></span>
+              </div>
+
+              <p>
+                No handling issues, damage alerts or abnormal movement detected
+                during the journey.
+              </p>
+            </div>
+
+            <!-- SECURITY CHECKS -->
+            <div class="security-checks">
+              <div class="security-check completed">
+                <div class="check-icon">✓</div>
+
+                <div>
+                  <h4>Pickup Verification</h4>
+                  <p>Barcode scanned and shipment identity confirmed.</p>
+                </div>
+
+                <span class="check-status"> Verified </span>
+              </div>
+
+              <div class="security-check completed">
+                <div class="check-icon">✓</div>
+
+                <div>
+                  <h4>Hub Security Scan</h4>
+                  <p>Package scanned during sorting and handoff.</p>
+                </div>
+
+                <span class="check-status"> Verified </span>
+              </div>
+
+              <div class="security-check completed">
+                <div class="check-icon">✓</div>
+
+                <div>
+                  <h4>Route Monitoring</h4>
+                  <p>Shipment movement remains inside the planned corridor.</p>
+                </div>
+
+                <span class="check-status"> Active </span>
+              </div>
+
+              <div class="security-check">
+                <div class="check-icon pending">OTP</div>
+
+                <div>
+                  <h4>Delivery Verification</h4>
+                  <p>Final OTP or signature will confirm delivery.</p>
+                </div>
+
+                <span class="check-status pending-text"> Pending </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECURITY METRICS -->
+        <div class="security-metrics reveal">
+          <div class="security-metric">
+            <div class="metric-symbol">🛡️</div>
+
+            <div>
+              <strong>100%</strong>
+              <span>Scan coverage</span>
+            </div>
+          </div>
+
+          <div class="security-metric">
+            <div class="metric-symbol">📡</div>
+
+            <div>
+              <strong>8 sec</strong>
+              <span>GPS monitoring</span>
+            </div>
+          </div>
+
+          <div class="security-metric">
+            <div class="metric-symbol">🔒</div>
+
+            <div>
+              <strong>256-bit</strong>
+              <span>Data encryption</span>
+            </div>
+          </div>
+
+          <div class="security-metric">
+            <div class="metric-symbol">✓</div>
+
+            <div>
+              <strong>Verified</strong>
+              <span>Shipment identity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECURITY NOTE -->
+        <div class="security-note reveal">
+          <span>🛡️</span>
+
+          <p>
+            <strong>Security-first delivery:</strong>
+            Every important shipment event is digitally recorded, creating a
+            transparent chain of custody from pickup to doorstep.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK EXPERIENCE -->
+    <section class="track-story">
+      <div class="track-story-bg"></div>
+      <div class="track-story-overlay"></div>
+
+      <div class="wrap track-story-inner">
+        <div class="track-story-content reveal">
+          <span class="eyebrow track-story-pill">
+            🛰️ Live Delivery Intelligence
+          </span>
+
+          <h2>
+            Know where your
+            <span>package is.</span>
+            Always.
+          </h2>
+
+          <p>
+            From the moment your shipment leaves the pickup point, SwiftTrail
+            keeps you connected with live location, delivery milestones and
+            intelligent ETA updates.
+          </p>
+
+          <div class="track-story-actions">
+            <a href="error.html" class="btn btn-amber"> Track a shipment → </a>
+
+            <a href="error.html" class="track-story-link">
+              Explore tracking features
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- FLOATING TRACKING CARD -->
+        <div class="track-live-card reveal zoom">
+          <div class="track-live-top">
+            <div>
+              <small>SHIPMENT STATUS</small>
+              <strong>ST-4829-IND</strong>
+            </div>
+
+            <span class="track-live-badge"> ● LIVE </span>
+          </div>
+
+          <div class="track-route-line">
+            <div class="track-route-point">
+              <span></span>
+              <div>
+                <strong>Bengaluru</strong>
+                <small>Picked up · 08:42</small>
+              </div>
+            </div>
+
+            <div class="track-route-progress">
+              <i></i>
+            </div>
+
+            <div class="track-route-point destination">
+              <span></span>
+              <div>
+                <strong>Chennai</strong>
+                <small>Estimated · 14:20</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="track-live-bottom">
+            <div>
+              <small>VEHICLE</small>
+              <strong>🚚 TR-208</strong>
+            </div>
+
+            <div>
+              <small>SPEED</small>
+              <strong>62 km/h</strong>
+            </div>
+
+            <div>
+              <small>ETA</small>
+              <strong>2h 18m</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PACKAGE JOURNEY -->
+    <section class="package-journey">
+      <div class="pj-bg"></div>
+      <div class="pj-glow pj-glow-a"></div>
+      <div class="pj-glow pj-glow-b"></div>
+
+      <div class="wrap">
+        <!-- HEADER -->
+        <div class="pj-head reveal">
+          <div>
+            <span class="eyebrow pj-pill">📦 Package Journey</span>
+
+            <h2>
+              From pickup
+              <span>to your doorstep.</span>
+            </h2>
+          </div>
+
+          <p>
+            Every shipment has a story. Follow every important milestone as your
+            package moves through the SwiftTrail network.
+          </p>
+        </div>
+
+        <!-- JOURNEY -->
+        <div class="pj-journey reveal zoom">
+          <!-- PROGRESS LINE -->
+          <div class="pj-line">
+            <span class="pj-line-progress"></span>
+          </div>
+
+          <!-- STEP 01 -->
+          <div class="pj-step active">
+            <div class="pj-marker">
+              <span class="pj-check">✓</span>
+
+              <div class="pj-pulse"></div>
+            </div>
+
+            <div class="pj-card">
+              <div class="pj-card-top">
+                <span class="pj-number">01</span>
+
+                <span class="pj-time"> Aug 12 · 08:10 </span>
+              </div>
+
+              <div class="pj-icon">🏷️</div>
+
+              <h3>Label Created</h3>
+
+              <p>Your shipment entered the SwiftTrail system and received.</p>
+
+              <div class="pj-location">
+                <span>📍</span>
+                Bengaluru, Karnataka
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 02 -->
+          <div class="pj-step active">
+            <div class="pj-marker">
+              <span class="pj-check">✓</span>
+
+              <div class="pj-pulse"></div>
+            </div>
+
+            <div class="pj-card">
+              <div class="pj-card-top">
+                <span class="pj-number">02</span>
+
+                <span class="pj-time"> Aug 12 · 10:32 </span>
+              </div>
+
+              <div class="pj-icon">🛵</div>
+
+              <h3>Picked Up</h3>
+
+              <p>
+                A SwiftTrail courier collected the package and scanned it at the
+                pickup location.
+              </p>
+
+              <div class="pj-location">
+                <span>📍</span>
+                Indiranagar Pickup Point
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 03 -->
+          <div class="pj-step active">
+            <div class="pj-marker">
+              <span class="pj-check">✓</span>
+
+              <div class="pj-pulse"></div>
+            </div>
+
+            <div class="pj-card">
+              <div class="pj-card-top">
+                <span class="pj-number">03</span>
+
+                <span class="pj-time"> Aug 12 · 14:05 </span>
+              </div>
+
+              <div class="pj-icon">🏭</div>
+
+              <h3>Sorting Hub</h3>
+
+              <p>
+                The package was scanned, sorted and assigned to its next
+                transportation .
+              </p>
+
+              <div class="pj-location">
+                <span>📍</span>
+                Bengaluru South Hub
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 04 -->
+          <div class="pj-step active current">
+            <div class="pj-marker">
+              <span>🚚</span>
+
+              <div class="pj-pulse"></div>
+            </div>
+
+            <div class="pj-card">
+              <div class="pj-card-top">
+                <span class="pj-number">04</span>
+
+                <span class="pj-live"> ● LIVE </span>
+              </div>
+
+              <div class="pj-icon">🛣️</div>
+
+              <h3>In Transit</h3>
+
+              <p>
+                Your package is currently moving toward the destination city on
+                its planned route.
+              </p>
+
+              <div class="pj-location">
+                <span>📍</span>
+                Bengaluru → Chennai
+              </div>
+
+              <div class="pj-live-bar">
+                <span></span>
+
+                <b>Vehicle moving</b>
+
+                <strong>48 km/h</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 05 -->
+          <div class="pj-step">
+            <div class="pj-marker">
+              <span>5</span>
+            </div>
+
+            <div class="pj-card">
+              <div class="pj-card-top">
+                <span class="pj-number">05</span>
+
+                <span class="pj-time"> Expected </span>
+              </div>
+
+              <div class="pj-icon">📍</div>
+
+              <h3>Out for Delivery</h3>
+
+              <p>
+                A local courier will take your package on its final-mile
+                delivery route.
+              </p>
+
+              <div class="pj-location">
+                <span>📍</span>
+                Chennai Delivery Hub
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 06 -->
+          <div class="pj-step">
+            <div class="pj-marker">
+              <span>6</span>
+            </div>
+
+            <div class="pj-card">
+              <div class="pj-card-top">
+                <span class="pj-number">06</span>
+
+                <span class="pj-time"> Expected </span>
+              </div>
+
+              <div class="pj-icon">🏠</div>
+
+              <h3>Delivered</h3>
+
+              <p>
+                Final delivery confirmed with OTP, signature or
+                proof-of-delivery photo.
+              </p>
+
+              <div class="pj-location">
+                <span>📍</span>
+                Your doorstep
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOURNEY SUMMARY -->
+        <div class="pj-summary reveal">
+          <div class="pj-summary-main">
+            <span class="pj-summary-icon"> ⚡ </span>
+
+            <div>
+              <small>JOURNEY STATUS</small>
+
+              <strong> Your package is moving as planned </strong>
+
+              <p>No delays detected across the current route.</p>
+            </div>
+          </div>
+
+          <div class="pj-summary-stats">
+            <div>
+              <strong>4</strong>
+              <small>Milestones passed</small>
+            </div>
+
+            <div>
+              <strong>2</strong>
+              <small>Stops remaining</small>
+            </div>
+
+            <div>
+              <strong>96%</strong>
+              <small>On-time confidence</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     COURIER PROFILE — IMAGE STORY
+===================================================== -->
+    <section class="courier-image-story">
+      <div class="cis-shape cis-shape-one"></div>
+      <div class="cis-shape cis-shape-two"></div>
+
+      <div class="wrap">
+        <div class="cis-layout">
+          <!-- IMAGE COLLAGE -->
+          <div class="cis-gallery reveal left">
+            <div class="cis-main-image">
+              <img
+                src="images/logistics3.webp"
+                alt="SwiftTrail courier delivering a package"
+              />
+
+              <div class="cis-image-caption">
+                <span class="cis-live-dot"></span>
+                <span>Courier currently on route</span>
+              </div>
+            </div>
+
+            <div class="cis-small-image cis-small-one">
+              <img
+                src="images/service-bg1.webp"
+                alt="Courier package delivery"
+              />
+            </div>
+
+            <div class="cis-small-image cis-small-two">
+              <img
+                src="images/home1.webp"
+                alt="Package ready for delivery"
+              />
+            </div>
+
+            <div class="cis-location">
+              <span>📍</span>
+              <div>
+                <small>LIVE LOCATION</small>
+                <strong>Anna Nagar, Chennai</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTENT -->
+          <div class="cis-content reveal right">
+            <span class="eyebrow cis-eyebrow"> 👤 Your Courier </span>
+
+            <h2>
+              Someone is
+              <span>already on the way.</span>
+            </h2>
+
+            <p class="cis-description">
+              Your package isn't simply moving through a network. A dedicated
+              courier is carrying it through the final miles of its journey.
+            </p>
+
+            <div class="cis-profile">
+              <div class="cis-avatar">
+                <img
+                  src="images/team5.webp"
+                  alt="Courier profile"
+                />
+              </div>
+
+              <div>
+                <small>DELIVERY PARTNER</small>
+                <h3>Suresh Prakash</h3>
+                <p>Senior Courier · Chennai</p>
+              </div>
+
+              <span class="cis-verified"> ✓ Verified </span>
+            </div>
+
+            <!-- ROUTE -->
+            <div class="cis-route">
+              <div class="cis-route-line"></div>
+
+              <div class="cis-stop">
+                <span class="cis-stop-dot start"></span>
+
+                <div>
+                  <small>PICKED UP</small>
+                  <strong>Chennai Central Hub</strong>
+                </div>
+              </div>
+
+              <div class="cis-stop">
+                <span class="cis-stop-dot end"></span>
+
+                <div>
+                  <small>DESTINATION</small>
+                  <strong>Anna Nagar, Chennai</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- BOTTOM INFO -->
+            <div class="cis-footer">
+              <div>
+                <strong>4.9 ★</strong>
+                <span>Courier rating</span>
+              </div>
+
+              <div>
+                <strong>1,842</strong>
+                <span>Deliveries completed</span>
+              </div>
+
+              <div>
+                <strong>98.7%</strong>
+                <span>On-time rate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MAP CORRIDOR -->
+    <section class="t-map">
+      <div class="wrap map-in">
+        <div class="map-copy">
+          <span class="eyebrow pill-amber">Route corridor</span>
+          <h2>The map that never lies</h2>
+          <p>
+            Every ping is matched to the planned corridor. If a driver drifts
+            more than 1.5 km off-route, the customer gets a heads-up before you
+            get a call.
+          </p>
+          <ul class="tick">
+            <li>8-second GPS refresh</li>
+            <li>Geo-fenced hub entry & exit</li>
+            <li>Automatic re-route on road closure</li>
+            <li>Shareable public map link</li>
+          </ul>
+          <a class="btn btn-teal" href="error.html">See the network →</a>
+        </div>
+        <div class="map-art">
+          <img
+            src="images/map1.webp"
+            alt="Route map"
+          />
+          <svg class="route" viewBox="0 0 400 260" preserveAspectRatio="none">
+            <path d="M30 210 C120 190 130 90 210 80 S330 60 372 34" />
+          </svg>
+          <span class="pin p-a">A</span><span class="pin p-b">B</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LIVE FEED -->
+    <section class="t-feed">
+      <div class="wrap">
+        <div class="head-t">
+          <span class="eyebrow pill-pink">Network pulse</span>
+          <h2>Live scan feed</h2>
+          <p>A sample of events crossing our hubs right now.</p>
+        </div>
+        <div class="feed-box"><ul id="feedList"></ul></div>
+      </div>
+    </section>
+
+    <!-- 5. STATUS LEGEND -->
+    <section class="t-legend">
+      <div class="wrap">
+        <div class="head-t light">
+          <span class="eyebrow pill-lime">Decoder</span>
+          <h2>What each status really means</h2>
+        </div>
+        <div class="leg-grid">
+          <div class="leg l1 reveal left">
+            <b>Label created</b>
+            <p>We have the data, the parcel is still with the sender.</p>
+          </div>
+          <div class="leg l2 reveal">
+            <b>Picked up</b>
+            <p>A rider physically scanned the barcode at origin.</p>
+          </div>
+          <div class="leg l3 reveal right">
+            <b>At hub</b>
+            <p>Sorted, weighed and assigned to the next leg.</p>
+          </div>
+          <div class="leg l4 reveal left">
+            <b>In transit</b>
+            <p>Moving on a sealed line-haul between two cities.</p>
+          </div>
+          <div class="leg l5 reveal">
+            <b>Out for delivery</b>
+            <p>On the last-mile route — live map is now public.</p>
+          </div>
+          <div class="leg l6 reveal right">
+            <b>Delivered</b>
+            <p>Photo, signature or OTP captured at the door.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FAQ -->
+    <section class="t-faq">
+      <div class="wrap">
+        <div class="head-t">
+          <span class="eyebrow pill-violet">Questions</span>
+          <h2>Tracking FAQ</h2>
+        </div>
+        <div class="acc" id="acc">
+          <div class="ai">
+            <button>Why is my status stuck on “In transit”?</button>
+            <div class="ap">
+              <p>
+                Line-haul legs can run 6–20 hours with no scan point in between.
+                The ETA keeps updating even when the status text does not.
+              </p>
+            </div>
+          </div>
+          <div class="ai">
+            <button>How accurate is the predicted delivery window?</button>
+            <div class="ap">
+              <p>
+                Our model lands inside the promised 2-hour window 94.6% of the
+                time across the last 90 days.
+              </p>
+            </div>
+          </div>
+          <div class="ai">
+            <button>Can I share tracking with my customer?</button>
+            <div class="ap">
+              <p>
+                Yes — every shipment has a public link that hides your cost data
+                and shows only journey information.
+              </p>
+            </div>
+          </div>
+          <div class="ai">
+            <button>What happens if delivery fails?</button>
+            <div class="ap">
+              <p>
+                Three automatic re-attempts on consecutive days, then the parcel
+                is held at the nearest hub for seven days.
+              </p>
+            </div>
+          </div>
+          <div class="ai">
+            <button>Do you track international parcels?</button>
+            <div class="ap">
+              <p>
+                128 countries with customs milestones included: export scan,
+                clearance, duty paid and import handover.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="van-strip">
+      <div class="road"></div>
+      <div class="van">🛵</div>
+    </div>
+
+    <footer class="foot">
+      <div class="wrap foot-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 14px">
+            <a class="brand" href="index.html">
+              <img src="images/logo.webp" alt="Stackly">
+            </a>
+          </div>
+          <p>
+            The tracking layer for modern logistics. One API, every carrier,
+            zero guesswork.
+          </p>
+          <div class="soc">
+
+             <a href="error.html"><i class="fa-brands fa-facebook-f"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-instagram"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-google-play"></i></a>
+
+             <a href="error.html"><i class="fa-brands fa-app-store-ios"></i></a>
+
+         </div>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="track.html">Live tracking</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Network</a></li>
+            <li><a href="pricing.html">Enterprise</a></li>
+            <li><a href="index.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Head office</h4>
+          <p>
+            18 Harbour Line, Anna Salai<br />Chennai 600002, India<br />+91 44
+            4000 8899
+            <!-- NEWSLETTER -->
+              <div class="footer-subscribe">
+
+                  <form class="subscribe-form">
+
+                     <div class="subscribe-input">
+                          <i class="fa-regular fa-envelope"></i>
+
+                         <input
+                              type="email"
+                              placeholder="Enter your email address"
+                              required
+                          >
+                     </div>
+
+                     <button type="submit" class="subscribe-btn">
+                         Subscribe
+                         <i class="fa-solid fa-arrow-right"></i>
+                     </button>
+
+                  </form>
+
+                 <span class="subscribe-message"></span>
+
+              </div>
+          </p>
+        </div>
+      </div>
+      <div class="wrap foot-bar">
+        <span>© <span class="yr"></span> SwiftTrail Logistics Pvt Ltd.</span
+        ><span>Privacy · Terms · Status</span>
+      </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/track.js"></script>
+  </body>
+</html>
+
+
+https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=2000&q=85

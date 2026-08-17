@@ -1,0 +1,52 @@
+/* ===== Shipper Dashboard — page specific ===== */
+body.ship{background:
+  radial-gradient(900px 360px at 0% -6%,rgba(255,176,32,.20),transparent 62%),
+  radial-gradient(820px 340px at 100% 100%,rgba(57,167,255,.18),transparent 62%),
+  #edf0f9}
+body.ship .side{background:linear-gradient(178deg,#13224f,#050a1c 78%);border-right-color:rgba(0,212,177,.28)}
+body.ship .mlink.active{background:linear-gradient(90deg,rgba(0,212,177,.22),rgba(0,212,177,0));border-left-color:var(--teal)}
+body.ship .mlink.active .ic{background:linear-gradient(135deg,var(--teal),#39a7ff);color:#04211d}
+body.ship .chip{background:#0f2b46;color:var(--teal)}
+body.ship .topbar{background:rgba(255,255,255,.9);border-bottom:2px solid #dbe6f5}
+
+.bulkbar{display:flex;flex-wrap:wrap;gap:9px}
+
+.lane{margin-bottom:14px}
+.lane .rowline span:last-child{color:#4b5480}
+
+/* rider cards */
+.rider{border-radius:18px;overflow:hidden;color:#fff;position:relative;box-shadow:0 16px 32px rgba(13,18,50,.18);
+  transition:transform .35s cubic-bezier(.2,.8,.25,1)}
+.rider:hover{transform:translateY(-8px) scale(1.015)}
+.rider .ph{height:132px;position:relative}
+.rider .ph img{width:100%;height:100%;object-fit:cover;object-position:center 10%;}
+.rider .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(6,10,30,.86))}
+.rider .st{position:absolute;top:12px;left:12px;z-index:2;font-size:.66rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+  padding:6px 11px;border-radius:999px;background:#00d4b1;color:#04211d}
+.rider .st.off{background:#ff5c8a;color:#fff}
+.rider .st.brk{background:#ffb020;color:#2a1704}
+.rider .bd{padding:16px;background:linear-gradient(160deg,#1a2360,#0b1030)}
+.rider .bd h4{font-size:1rem}
+.rider .bd p{font-size:.8rem;opacity:.85;margin-top:3px}
+.rider .stats{display:flex;gap:8px;margin-top:13px}
+.rider .stats div{flex:1;background:rgba(255,255,255,.1);border-radius:12px;padding:9px;text-align:center}
+.rider .stats b{display:block;font-size:1rem}
+.rider .stats span{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.rider .bd .bar{margin-top:12px;background:rgba(255,255,255,.18)}
+
+/* checkboxes in table */
+.tbl input[type=checkbox]{width:17px;height:17px;accent-color:#00d4b1;cursor:pointer}
+.tbl tr.sel{background:#e7fbf5}
+
+.switchrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed #e2e7f6;
+  font-size:.88rem;font-weight:700;color:#2b3468}
+.sw{position:relative;width:50px;height:28px;flex:0 0 50px}
+.sw input{opacity:0;width:0;height:0}
+.sw i{position:absolute;inset:0;border-radius:999px;background:#d6dcf0;transition:background .3s}
+.sw i::after{content:"";position:absolute;top:4px;left:4px;width:20px;height:20px;border-radius:50%;background:#fff;
+  transition:transform .3s cubic-bezier(.5,1.6,.5,1);box-shadow:0 3px 8px rgba(0,0,0,.2)}
+.sw input:checked + i{background:linear-gradient(120deg,var(--amber),#ff7a2f)}
+.sw input:checked + i::after{transform:translateX(22px)}
+
+body.ship .chart div{background:linear-gradient(180deg,#00d4b1,#017a8f)}
+body.ship .chart div:nth-child(even){background:linear-gradient(180deg,#39a7ff,#1741b8)}
