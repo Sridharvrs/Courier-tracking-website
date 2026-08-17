@@ -18,7 +18,7 @@
 
   <!-- ============ SIDEBAR ============ -->
   <aside class="side" id="side">
-    <a class="brand" href="index.html">
+    <a class="brand" href="customer-dashboard.html">
       <img src="images/logo.webp" alt="Stackly">
     </a>
 
@@ -135,7 +135,7 @@
           <div class="panel"><h3>Delivery Preferences</h3><p class="sub">Applied to the selected parcel.</p>
             <div class="field"><label>Drop instruction</label><select><option>Hand to me only</option><option>Leave with security</option><option>Neighbour accepted</option></select></div>
             <div class="field"><label>Preferred slot</label><select><option>9 AM – 12 PM</option><option>12 PM – 4 PM</option><option>4 PM – 8 PM</option></select></div>
-            <button class="pill-btn alt" data-toast="Delivery preference saved for this parcel.">Save Preference</button>
+            <button class="pill-btn alt" onclick="window.location.href = 'dashboardError.html'">Save Preference</button>
           </div>
         </div>
       </section>
@@ -155,7 +155,7 @@
               <div class="field"><label>Insurance</label><select id="bkIns"><option value="0">None</option><option value="49">Standard ₹49</option><option value="149">Premium ₹149</option></select></div>
             </div>
             <div class="field"><label>Package note</label><textarea rows="3" placeholder="Fragile ceramic, handle upright"></textarea></div>
-            <button class="pill-btn" id="bkConfirm"><i class="fa-solid fa-check"></i> Confirm Booking</button>
+            <button class="pill-btn" onclick="window.location.href = 'dashboardError.html'"><i class="fa-solid fa-check"></i> Confirm Booking</button>
           </div>
           <div class="panel reveal">
             <h3>Live Quote</h3><p class="sub">Updates instantly.</p>
@@ -173,11 +173,11 @@
       <!-- ---------- ADDRESS BOOK ---------- -->
       <section class="module" id="m-address">
         <div class="mod-head"><div><span class="chip">Saved</span><h2>Address Book</h2><p>Reusable pickup and drop locations with default tagging.</p></div>
-          <button class="pill-btn spacer" id="addAddr"><i class="fa-solid fa-plus"></i> Add Address</button></div>
+          <button class="pill-btn spacer" onclick="window.location.href = 'dashboardError.html'"><i class="fa-solid fa-plus"></i> Add Address</button></div>
         <div class="grid g3 reveal" id="addrGrid"></div>
         <div class="panel reveal" style="margin-top:16px">
           <h3>Coverage Check</h3><p class="sub">Verify a PIN code before booking.</p>
-          <div class="trackbox"><input id="pinInput" placeholder="Enter 6-digit PIN code"><button class="pill-btn alt" id="pinBtn">Check</button></div>
+          <div class="trackbox"><input id="pinInput" placeholder="Enter 6-digit PIN code"><button class="pill-btn alt" onclick="window.location.href = 'dashboardError.html'">Check</button></div>
           <p class="note" id="pinOut" style="margin-top:12px">Serviceable across 19,400+ PIN codes.</p>
         </div>
       </section>
@@ -203,7 +203,7 @@
           <div class="panel reveal"><h3>Add Money</h3><p class="sub">Instant UPI / card top-up.</p>
             <div class="field"><label>Amount (₹)</label><input type="number" id="topAmt" value="1000"></div>
             <div class="quickamt"><button data-amt="500">₹500</button><button data-amt="1000">₹1000</button><button data-amt="2500">₹2500</button></div>
-            <button class="pill-btn" id="topBtn" style="margin-top:14px"><i class="fa-solid fa-bolt"></i> Top Up Wallet</button>
+            <button class="pill-btn" onclick="window.location.href = 'dashboardError.html'" style="margin-top:14px"><i class="fa-solid fa-bolt"></i> Top Up Wallet</button>
           </div>
         </div>
       </section>
@@ -216,7 +216,7 @@
             <div class="field"><label>Related tracking ID</label><input id="spId" placeholder="ST-99120"></div>
             <div class="field"><label>Issue type</label><select><option>Delayed delivery</option><option>Damaged parcel</option><option>Wrong address</option><option>Refund request</option></select></div>
             <div class="field"><label>Describe the issue</label><textarea rows="4" id="spMsg" placeholder="Tell us what happened…"></textarea></div>
-            <button class="pill-btn" id="spBtn"><i class="fa-solid fa-paper-plane"></i> Submit Ticket</button>
+            <button class="pill-btn" onclick="window.location.href = 'dashboardError.html'"><i class="fa-solid fa-paper-plane"></i> Submit Ticket</button>
             <p class="note" id="spOut" style="margin-top:12px"></p>
           </div>
           <div class="panel reveal"><h3>Open Tickets</h3><p class="sub">Live status of your requests.</p>
@@ -242,7 +242,7 @@
             <div class="field"><label>Full name</label><input value="Meera Raghav"></div>
             <div class="field"><label>Phone</label><input value="+91 98407 22110"></div>
             <div class="field"><label>Email</label><input value="meera@swifttrail.io"></div>
-            <button class="pill-btn" data-toast="Profile updated successfully.">Save Profile</button>
+            <button class="pill-btn" onclick="window.location.href = 'dashboardError.html'">Save Profile</button>
           </div>
           <div class="panel reveal"><h3>Notifications</h3><p class="sub">Choose how we ping you.</p>
             <div class="switchrow"><span>SMS on every scan</span><label class="sw"><input type="checkbox" checked><i></i></label></div>
@@ -251,7 +251,7 @@
             <div class="switchrow"><span>Promotional offers</span><label class="sw"><input type="checkbox"><i></i></label></div>
             <h3 style="margin-top:20px">Security</h3><p class="sub">Keep your parcels safe.</p>
             <div class="switchrow"><span>Two-factor login</span><label class="sw"><input type="checkbox" checked><i></i></label></div>
-            <button class="pill-btn alt" data-toast="Security settings saved.">Update Security</button>
+            <button class="pill-btn alt" onclick="window.location.href = 'dashboardError.html'">Update Security</button>
           </div>
         </div>
       </section>

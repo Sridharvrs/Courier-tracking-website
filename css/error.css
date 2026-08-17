@@ -1,0 +1,989 @@
+/* =========================================================
+   SWIFTTRAIL — 404 ERROR PAGE
+========================================================= */
+
+.error-page {
+  min-height: calc(100vh - 80px);
+  padding: 150px 0 90px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(123,92,255,.16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(0,212,177,.13),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #f7f9ff,
+      #eef3fb
+    );
+}
+
+
+/* ================= GRID ================= */
+
+.error-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .35;
+  background-image:
+    linear-gradient(
+      rgba(11,16,48,.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(11,16,48,.05) 1px,
+      transparent 1px
+    );
+  background-size: 55px 55px;
+  pointer-events: none;
+}
+
+
+/* ================= GLOW ================= */
+
+.error-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.error-glow-one {
+  width: 380px;
+  height: 380px;
+  top: 5%;
+  left: -180px;
+  background: rgba(123,92,255,.13);
+}
+
+.error-glow-two {
+  width: 320px;
+  height: 320px;
+  right: -120px;
+  bottom: 5%;
+  background: rgba(0,212,177,.15);
+}
+
+
+/* ================= CONTAINER ================= */
+
+.error-container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  gap: 70px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ================= CONTENT ================= */
+
+.error-content {
+  max-width: 610px;
+}
+
+.error-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 9px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(123,92,255,.10);
+
+  border: 1px solid rgba(123,92,255,.25);
+
+  color: #5b3fe0;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  letter-spacing: .04em;
+}
+
+
+.error-content h1 {
+  margin: 22px 0 20px;
+
+  color: var(--navy);
+
+  font-size: clamp(
+    42px,
+    5vw,
+    72px
+  );
+
+  line-height: 1.04;
+
+  letter-spacing: -.045em;
+}
+
+.error-content h1 span {
+  font-size: clamp(
+    70px,
+    9vw,
+    130px
+  );
+
+  line-height: .85;
+
+  font-weight: 900;
+
+  background:
+    linear-gradient(
+      120deg,
+      var(--violet),
+      var(--pink),
+      var(--amber)
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.error-content h1 strong {
+  display: inline-block;
+
+  color: var(--navy);
+
+  font-weight: 900;
+}
+
+
+.error-content > p {
+  max-width: 560px;
+
+  color: #58617d;
+
+  font-size: 18px;
+
+  line-height: 1.8;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.error-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 30px;
+
+  flex-wrap: wrap;
+}
+
+.error-actions .btn {
+  font-size: 16px;
+  padding: 15px 25px;
+}
+
+
+.error-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 14px 24px;
+
+  border: 2px solid rgba(11,16,48,.15);
+
+  border-radius: 999px;
+
+  color: var(--navy);
+
+  font-size: 16px;
+  font-weight: 800;
+
+  background: rgba(255,255,255,.72);
+
+  transition: .3s ease;
+}
+
+.error-outline:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--teal);
+
+  color: #008f7c;
+
+  box-shadow:
+    0 12px 28px rgba(0,212,177,.16);
+}
+
+
+/* ================= MINI INFO ================= */
+
+.error-mini {
+  display: flex;
+
+  gap: 14px;
+
+  margin-top: 36px;
+}
+
+.error-mini > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px 16px;
+
+  background: rgba(255,255,255,.72);
+
+  border: 1px solid rgba(11,16,48,.08);
+
+  border-radius: 15px;
+
+  box-shadow: 0 10px 25px rgba(9,12,40,.06);
+}
+
+.error-mini i {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: rgba(0,212,177,.12);
+
+  color: #009f8a;
+
+  font-size: 16px;
+}
+
+.error-mini strong,
+.error-mini span {
+  display: block;
+}
+
+.error-mini strong {
+  color: var(--navy);
+
+  font-size: 15px;
+}
+
+.error-mini span {
+  margin-top: 3px;
+
+  color: #68718c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   VISUAL
+========================================================= */
+
+.error-visual {
+  min-height: 510px;
+
+  position: relative;
+
+  display: grid;
+  place-items: center;
+}
+
+
+/* ================= MAP ================= */
+
+.error-map {
+  position: absolute;
+
+  width: 480px;
+  height: 390px;
+
+  border-radius: 34px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(11,16,48,.96),
+      rgba(20,26,69,.96)
+    );
+
+  border: 1px solid rgba(123,92,255,.28);
+
+  box-shadow:
+    0 35px 80px rgba(11,16,48,.25),
+    inset 0 0 60px rgba(123,92,255,.08);
+
+  transform: rotate(-3deg);
+}
+
+
+/* MAP GRID */
+
+.error-map::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 38px 38px;
+}
+
+
+/* ================= ROADS ================= */
+
+.map-road {
+  position: absolute;
+
+  height: 2px;
+
+  background: rgba(255,255,255,.15);
+
+  transform-origin: left center;
+}
+
+.road-one {
+  width: 380px;
+  left: 40px;
+  top: 100px;
+  transform: rotate(17deg);
+}
+
+.road-two {
+  width: 420px;
+  left: 20px;
+  top: 250px;
+  transform: rotate(-22deg);
+}
+
+.road-three {
+  width: 310px;
+  left: 160px;
+  top: 330px;
+  transform: rotate(-5deg);
+}
+
+
+/* ================= ROUTE ================= */
+
+.route-line {
+  position: absolute;
+
+  width: 330px;
+  height: 160px;
+
+  left: 70px;
+  top: 100px;
+
+  border-top:
+    4px solid var(--teal);
+
+  border-right:
+    4px solid var(--teal);
+
+  border-radius: 50%;
+
+  transform: rotate(8deg);
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(0,212,177,.6)
+    );
+
+  animation: routePulse 3s ease-in-out infinite;
+}
+
+@keyframes routePulse {
+
+  0%,
+  100% {
+    opacity: .65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* ================= WRONG ROUTE ================= */
+
+.wrong-route {
+  position: absolute;
+
+  right: 40px;
+  bottom: 65px;
+
+  width: 130px;
+  height: 100px;
+
+  border-left:
+    3px dashed var(--pink);
+
+  border-bottom:
+    3px dashed var(--pink);
+
+  border-radius: 0 0 0 50px;
+
+  transform: rotate(-15deg);
+}
+
+.wrong-route > span {
+  position: absolute;
+
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+
+  background: var(--pink);
+
+  right: -6px;
+  bottom: -6px;
+
+  box-shadow:
+    0 0 0 7px rgba(255,92,138,.15),
+    0 0 20px rgba(255,92,138,.8);
+}
+
+
+/* ================= WRONG ROUTE CARD ================= */
+
+.wrong-route-card {
+  position: absolute;
+
+  left: -20px;
+  bottom: 18px;
+
+  padding: 8px 13px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  white-space: nowrap;
+
+  border-radius: 9px;
+
+  background: #fff;
+
+  color: #c11f52;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.2);
+}
+
+
+/* ================= MAP DOTS ================= */
+
+.map-dot {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--amber);
+
+  box-shadow:
+    0 0 0 7px rgba(255,176,32,.12),
+    0 0 20px rgba(255,176,32,.7);
+}
+
+.dot-one {
+  left: 60px;
+  top: 90px;
+}
+
+.dot-two {
+  left: 280px;
+  top: 180px;
+}
+
+.dot-three {
+  right: 55px;
+  top: 65px;
+}
+
+
+/* =========================================================
+   TRUCK
+========================================================= */
+
+.error-truck {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(5px);
+
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.truck-icon {
+  width: 105px;
+  height: 105px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--amber),
+      #ff7a45
+    );
+
+  color: #281506;
+
+  font-size: 43px;
+
+  box-shadow:
+    0 25px 45px rgba(255,150,32,.38);
+
+  animation: truckFloat 3s ease-in-out infinite;
+}
+
+@keyframes truckFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+}
+
+
+/* ================= TRUCK GLOW ================= */
+
+.truck-glow {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+
+  background: rgba(255,176,32,.18);
+
+  filter: blur(20px);
+
+  z-index: -1;
+}
+
+
+/* ================= STATUS ================= */
+
+.truck-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 15px;
+
+  padding: 10px 15px;
+
+  border-radius: 12px;
+
+  background: rgba(7,11,34,.9);
+
+  color: #fff;
+
+  box-shadow:
+    0 15px 30px rgba(0,0,0,.25);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--pink);
+
+  box-shadow:
+    0 0 12px var(--pink);
+}
+
+.truck-status small,
+.truck-status strong {
+  display: block;
+}
+
+.truck-status small {
+  font-size: 10px;
+  color: #9ca5ca;
+  letter-spacing: .1em;
+}
+
+.truck-status strong {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+
+/* ================= FLOATING PACKAGE ================= */
+
+.floating-package {
+  position: absolute;
+
+  top: 45px;
+  right: 20px;
+
+  width: 65px;
+  height: 65px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--teal),
+      #00a7ff
+    );
+
+  color: #05221d;
+
+  font-size: 25px;
+
+  box-shadow:
+    0 20px 35px rgba(0,180,190,.25);
+
+  animation: packageFloat 4s ease-in-out infinite;
+}
+
+@keyframes packageFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(4deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(-4deg);
+  }
+
+}
+
+
+/* ================= 404 BADGE ================= */
+
+.error-badge {
+  position: absolute;
+
+  left: 15px;
+  bottom: 40px;
+
+  width: 110px;
+  height: 110px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #7b5cff,
+      #c11fbb
+    );
+
+  color: #fff;
+
+  box-shadow:
+    0 20px 45px rgba(123,92,255,.35);
+
+  transform: rotate(-10deg);
+}
+
+.error-badge strong {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.error-badge span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-align: center;
+}
+
+
+/* ================= ORBITS ================= */
+
+.visual-orbit {
+  position: absolute;
+
+  border: 1px dashed rgba(123,92,255,.28);
+
+  border-radius: 50%;
+}
+
+.orbit-one {
+  width: 500px;
+  height: 500px;
+
+  animation: orbitRotate 25s linear infinite;
+}
+
+.orbit-two {
+  width: 410px;
+  height: 410px;
+
+  border-color: rgba(0,212,177,.2);
+
+  animation:
+    orbitRotate 18s linear infinite reverse;
+}
+
+@keyframes orbitRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   QUICK LINKS
+========================================================= */
+
+.error-links {
+  width: min(1180px, 92%);
+
+  margin: 55px auto 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  position: relative;
+  z-index: 3;
+
+  padding-top: 22px;
+
+  border-top:
+    1px solid rgba(11,16,48,.1);
+}
+
+.error-links > span {
+  margin-right: auto;
+
+  color: #68718c;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.error-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--navy);
+
+  font-size: 15px;
+  font-weight: 800;
+
+  padding: 10px 15px;
+
+  border-radius: 10px;
+
+  transition: .25s ease;
+}
+
+.error-links a:hover {
+  color: #008f7c;
+  background: rgba(0,212,177,.08);
+}
+
+.error-links i {
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.nav .brand img,
+.foot .brand img {
+  width: 140px;
+  height: 45px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 980px) {
+
+  .error-page {
+    padding-top: 130px;
+  }
+
+  .error-container {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    text-align: center;
+  }
+
+  .error-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .error-content > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .error-actions {
+    justify-content: center;
+  }
+
+  .error-mini {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .error-visual {
+    min-height: 500px;
+  }
+
+  .error-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .error-links > span {
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .error-page {
+    padding: 115px 0 60px;
+  }
+
+  .error-content h1 {
+    font-size: 40px;
+  }
+
+  .error-content h1 span {
+    font-size: 80px;
+  }
+
+  .error-content > p {
+    font-size: 16px;
+  }
+
+  .error-mini {
+    flex-direction: column;
+  }
+
+  .error-mini > div {
+    width: 100%;
+    text-align: left;
+  }
+
+  .error-visual {
+    min-height: 400px;
+    transform: scale(.82);
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+
+  .error-map {
+    width: 390px;
+    height: 320px;
+  }
+
+  .visual-orbit.orbit-one {
+    width: 400px;
+    height: 400px;
+  }
+
+  .visual-orbit.orbit-two {
+    width: 330px;
+    height: 330px;
+  }
+
+  .floating-package {
+    right: 0;
+  }
+
+  .error-badge {
+    left: 0;
+    bottom: 30px;
+  }
+
+  .error-links {
+    flex-direction: column;
+  }
+
+  .error-links > span {
+    margin-bottom: 5px;
+  }
+
+  .error-links a {
+    width: 100%;
+    justify-content: center;
+  }
+
+}
